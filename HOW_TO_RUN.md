@@ -1,8 +1,8 @@
 # Running the Content Production App
 
 This is the end-to-end app (Ideation → Structure → Drafting → Final Content) built on top of
-the existing voice-cloning pipeline. It has two parts: a FastAPI backend (`server/`) and a
-React frontend (`web/`). The voice pipeline itself (`main.py`, `pipeline/`, `agents/`, `llm/`)
+the existing voice-cloning pipeline. It has two parts: a FastAPI backend (`backend/`) and a
+React frontend (`frontend/`). The voice pipeline itself (`main.py`, `pipeline/`, `agents/`, `llm/`)
 is untouched — the app only reads its output files from `outputs/`.
 
 ## Prerequisites
@@ -18,7 +18,7 @@ is untouched — the app only reads its output files from `outputs/`.
 pip install -r requirements.txt
 
 # Frontend deps
-cd web
+cd frontend
 npm install
 cd ..
 ```
@@ -28,7 +28,7 @@ cd ..
 From the project root:
 
 ```bash
-python -m uvicorn server.app:app --reload --host 127.0.0.1 --port 8000
+python -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Check it's up:
@@ -43,12 +43,12 @@ curl http://127.0.0.1:8000/api/health
 In a separate terminal:
 
 ```bash
-cd web
+cd frontend
 npm run dev
 ```
 
 This starts Vite on `http://127.0.0.1:5173` and proxies `/api/*` requests to the backend on
-port 8000 (see `web/vite.config.ts`). Open that URL in a browser.
+port 8000 (see `frontend/vite.config.ts`). Open that URL in a browser.
 
 ## 4. Using the app
 

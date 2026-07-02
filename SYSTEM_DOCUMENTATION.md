@@ -7,7 +7,7 @@
 The Writer ecosystem consists of two complementary subsystems that work together to produce high-quality, voice-cloned content:
 
 1. **The CLI Pipeline (`main.py` & `pipeline/`)**: An offline, AI-driven stylometry pipeline. It takes domain context, an outline, and original writing samples, then uses a multi-agent adversarial loop to extract, refine, and save a reusable "Voice Profile". The final output is an artifact called `final_style_prompt.txt`.
-2. **The API Server & Web UI (`server/` & `web/`)**: An end-to-end web application (React + FastAPI) where users create content projects. It walks users through a strict 4-phase workflow (Ideation → Structure → Drafting → Final Content), ultimately applying an offline-generated Voice Profile to the new content.
+2. **The API Server & Web UI (`backend/` & `frontend/`)**: An end-to-end web application (React + FastAPI) where users create content projects. It walks users through a strict 4-phase workflow (Ideation → Structure → Drafting → Final Content), ultimately applying an offline-generated Voice Profile to the new content.
 
 ---
 
@@ -46,7 +46,7 @@ The backend exposes a REST API and SSE streams to drive the strict 4-phase state
 
 ### 3.1 API Design & Endpoints
 
-The server (`server/app.py`) defines several routers under `/api`:
+The server (`backend/app.py`) defines several routers under `/api`:
 
 - **`projects_router`**: Create, manage, and advance project phases (`/advance`).
 - **`chat_router`**: Handles Phase 1 & 2 interactions (`/phases/{phase}/chat`), emitting SSE tokens and phase events.
