@@ -1,0 +1,9 @@
+Title: Model Context Protocol: Bringing AI to your own Data Sources
+Why do we need flowcharts how they influence the reader and how they help people digest the content better
+Type of charts we can represent
+The tutorial
+advice on prompting and general advice
+Example scenarios
+
+
+Follow the strcuture that teh user follows int eh orignal this is just what to include not how to include. You can also any more if you like or think the USER would add.

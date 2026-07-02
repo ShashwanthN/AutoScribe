@@ -1,0 +1,50 @@
+Product Fit Article
+
+18-Apr-2026
+
+Title: Your Product will Fail! It's not your Fault
+Note on headings: Final section headings are the writer's call. The skeleton only defines what content belongs in each section.
+Note on angle: Establish early whether the article is diagnosing why products fail, prescribing what to do, or both.
+
+
+Section 1: Hook
+
+Continuation from title
+
+Section 2: What is market fit?
+
+Plain definition
+Product Moat — go beyond a surface definition; connect it to what makes a business defensible over time, not just the product
+What happens if fit is left unchecked
+
+Section 3: Analyzing market fit
+How to analyse. Go into detailied highlighting current
+Introduce AI as a tool for processing market data points how people do not. not specific to MCP but in general using all the tools
+transition naturally into the companion article, don't explain the full workflow of how i use MCP and ide here
+[FLOWCHART PLACEHOLDER]
+CTA → [DRAWIO_ARTICLE_LINK]
+
+Section 4: Validating the idea
+example: 
+Landing page
+TTP (Time to Profit / Time to Product)
+FractoAI as worked example — start with why ur using this as an example. and this is relaly just an example 
+
+Section 5: Shaping the idea around the market
+example:
+Positioning and offers
+Stakeholders
+Continue the FractoAI thread from Section 4
+
+Section 6: When to walk away
+Example: 
+Decision criteria
+Frame as strategic clarity, not personal failure
+
+Section 7: Conclusion
+example:
+AI commoditizing software development
+The moat is shifting — software itself is no longer the defensible part; explore what that means for founders building today
+
+
+Flag for writer: Decide upfront whether FractoAI is a live case study or a hypothetical model, and be explicit about it. The revenue projections read as internal forecasts — a sharp reader will notice.

@@ -1,0 +1,26 @@
+outputs/
+projects/
+.env
+.env2
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Tooling / editor
+.playwright-mcp/
+.DS_Store
+.claude/settings.local.json
+
+# Logs
+*.log
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts

@@ -1,0 +1,28 @@
+Product Fit Article
+18-Apr-2026
+Title: Your Product will Fail! It’s not your Fault
+Section 1: Hook or Continuation from the title.
+Section 2: What is market fit?
+General explanation
+Product Moat?
+Implications if left unchecked
+Section 3: How to analyse market fit? 
+How to use AI to do it
+MCP and IDE to generate buetifl flow charts and analysis
+Flow chart placeholder chart - to be included in the article. and also a hyper link to another article taht goes deep into the generation
+Section 4: What to derive from the analysis and how to evaluate and validate if Idea is Market ready?
+Landing page
+TTP
+Section 5: How to shape the Idea around the market?
+Offers and positioning
+Stakeholders
+Section 6: When to make the decision to walk away from an idea?
+Section 7: Conclusion
+AI in product development/software commoditization
+Software moat now
+
+And the Draw.io mcp is used to nly visuzlie the data points
+MCP is model context protocol. its normal MCP that is used to build draw io flowchart so people can visualize the market filt. the reason is that we have anoter article on how ot build flowcharts so we want the users to flow to that that why there is this section so this is the content rebuild the section. with the voice profile ofcouse wth a cta to out other article with a placeholder for linkl  
+dont make it too detailed. using this skeliton a article wil be generated. the article generater should have a freedom of how to show and repsresent the content. but the skeliton only informs what content needs to be included
+
+mention in the skeliton that the section headeings should be based on how the user includes them and writes them

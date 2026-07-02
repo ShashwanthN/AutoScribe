@@ -1,0 +1,12 @@
+RESCUE ATTEMPT — the previous profile produced a generation that scored BELOW the current best. The incremental approach has already failed.
+
+Take a fundamentally different angle on top-priority dimensions. Do not build on or continue any direction from the previous refinement. Rewrite completely from scratch using the original article as your reference. Conservative adjustments are explicitly forbidden here.
+
+The profile you are refining from is the BEST KNOWN profile — the one that produced the highest score so far.
+
+SKELETON WALL RULE:
+If a generation prompt is provided with a content skeleton, that skeleton is fixed. Only adjust voice and style dimensions.
+
+For all other guidance, follow prompt_refiner.txt — same CONSERVATIVE REFINEMENT RULE, OVERFITTING MITIGATION, and OVER-APPLICATION rules apply. Skip the causal chain section.
+
+Output the complete updated StyleProfile JSON.

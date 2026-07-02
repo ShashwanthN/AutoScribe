@@ -1,0 +1,71 @@
+Context Brief: Flowchart Tutorial with draw.io MCP + Google Antigravity
+
+What is MCP (Model Context Protocol)?
+MCP is an open standard — originally developed by Anthropic — that allows AI agents and IDE assistants to securely connect to external tools, local systems, databases, and services. Think of it as a universal adapter: instead of manually copy-pasting database schemas, file contents, or API responses into a chat window, your AI IDE can pull that context directly via MCP when it needs it.
+Within the context of an AI IDE like Antigravity, MCP acts as a bridge between the editor and the outside world, allowing the AI to fetch real-time context beyond just the files open in the editor. The AI reads data from connected MCP servers to inform its suggestions — for example, when writing a SQL query, the agent can inspect a live database schema to suggest correct table and column names. Google Antigravity
+MCP uses a client-server model. The "MCP server" is a small local process (often launched via npx) that exposes capabilities to the AI agent. As a developer provides prompts to the agent, it determines whether an appropriate MCP server and its tools are needed to complete the task. Medium
+MCP servers are available for hundreds of tools — databases, Slack, GitHub, diagram tools, and more.
+
+What is Google Antigravity?
+Google Antigravity is Google's agent-first AI IDE released on November 18, 2025, built on a VS Code fork and powered by Gemini 3. It lets autonomous AI agents plan, write, test, and debug code across an entire project. The free tier includes approximately 20 agent requests per day on Gemini Flash; paid plans (AI Pro at $20/mo, AI Ultra at $249.99/mo) unlock higher limits and more capable models. Aicodingtools
+Antigravity is designed as an "agent-first" platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal human intervention. This moves the developer's role from someone writing code snippets to that of an "architect" or "manager," orchestrating a workforce of digital agents. Medium
+Key distinction from tools like Cursor or GitHub Copilot: Unlike Copilot or Cursor, which assist you while you code, Antigravity replaces the coding loop entirely. Brightcoding
+The UI: The Antigravity interface is bifurcated into two primary windows: the Editor and the Agent Manager. The Agent Manager acts as a Mission Control dashboard, letting developers spawn, monitor, and interact with multiple agents operating asynchronously. In the Manager view, a developer can dispatch five different agents to work on five different bugs simultaneously, effectively multiplying their throughput. Medium
+Antigravity 2.0 (May 2026): Google Antigravity 2.0 was launched at Google IO 2026 on May 19, 2026. It consists of five surfaces: a standalone desktop app for multi-agent orchestration, an Antigravity CLI (invoked as agy), an Antigravity SDK for building custom agents, Managed Agents in the Gemini API, and the Gemini Enterprise Agent Platform. Build Fast with AI
+
+What is the draw.io MCP Server?
+On February 3, 2026, JGraph, the team behind draw.io, released their official Model Context Protocol (MCP) server: @drawio/mcp. This release bridges the gap between AI agents and professional-grade visual documentation, enabling developers to generate editable, high-quality diagrams directly from their codebase. My Megam
+The official package is @drawio/mcp on npm. It exposes three tools to the AI:
+
+open_drawio_xml — generates a diagram from draw.io XML
+open_drawio_csv — converts tabular/CSV data into a diagram (org charts, flowcharts, etc.)
+open_drawio_mermaid — converts Mermaid.js syntax into a fully editable draw.io diagram
+
+When the agent uses one of these tools, the server generates a draw.io URL containing the diagram data and opens it in the browser, where the diagram loads fully editable. DeepWiki
+Why draw.io over Mermaid directly? Mermaid's algorithmic layout can be rigid and unpredictable when forced into complex structures, whereas draw.io's XML format allows for pixel-perfect positioning with full human control via the visual editor. Native draw.io diagrams are more vibrant, professional, and presentable out-of-the-box — especially for non-engineering audiences like stakeholders, PMs, and clients. Medium
+
+How to Install and Set Up the draw.io MCP Server
+Prerequisites: The MCP server requires Node.js version 18.0.0 or higher. DeepWiki
+Three installation methods:
+Method 1 — npx (recommended): The npx approach executes the package directly from the npm registry without installing it globally. This is the recommended method because it always uses the latest version and requires no installation step. It is recommended for most users, especially when configuring AI IDEs that spawn the server as a subprocess.
+Method 2 — Global installation: Installing globally adds the drawio-mcp command to your system PATH. This provides a persistent CLI command with faster startup, but the version is pinned until manually updated.
+Method 3 — From source: Cloning the repository and running npm install && npm start from the mcp-tool-server/ directory. Suitable for contributors or developers needing custom modifications. DeepWiki
+The standard config block (for Claude Desktop and most MCP clients):
+json{
+  "mcpServers": {
+    "drawio": {
+      "command": "npx",
+      "args": ["@drawio/mcp"]
+    }
+  }
+}
+For Antigravity specifically: To share MCP server configurations across Antigravity tools, you create an mcp_config.json file and place it in the ~/.gemini/config folder. The format mirrors the standard mcpServers object. Medium
+A real-world example config for Antigravity IDE (from a community contributor):
+json{
+  "mcpServers": {
+    "drawio": {
+      "command": "npx",
+      "args": ["@drawio/mcp"]
+    }
+  }
+}
+Save this to ~/.gemini/antigravity/mcp_config.json, then restart Antigravity. The drawio server should appear as connected in the MCP panel.
+Installing Antigravity itself:
+Antigravity is available in preview mode and free if you have a personal Gmail account. Go to the downloads page at antigravity.google/download and select the appropriate OS installer. After installation, you can import VS Code or Cursor settings or start fresh. The setup wizard walks through: choosing a theme, configuring terminal execution policy and review policy, signing in with a Google account, and accepting terms of use. Medium
+Agent execution modes:
+Antigravity supports two modes: Planning — the agent plans before executing, produces artifacts, and thinks through complex tasks for optimal quality; and Fast — the agent executes tasks directly without a planning phase, suited to simple tasks. Medium
+Also install: The draw.io VS Code extension (by Henning Dieterichs), which lets you open and visually edit .drawio files directly inside Antigravity's editor pane without switching to a browser.
+
+The Workflow in Practice
+The automation follows a four-step process: (1) Initialization — the agent loads a base template; (2) Component Selection — it selects specific shapes from a shared library; (3) Asset Composition — elements are grouped effectively; (4) Automation — the agent generates the final XML structure. Medium
+Key lessons from real-world use:
+Always save diagrams as .drawio. While the format is XML under the hood, the .drawio extension ensures better compatibility with VS Code extensions and the web editor. Explicitly instructing the agent to use width and height values from a shape library is important — without this, AI tends to resize icons to fit text, leading to distorted shapes. Use mxCell parents (containers) to organize services, as placing elements inside boundary boxes communicates architecture much more clearly than floating icons. Medium
+AI gets 80–90% of the way there. A truly great diagram always benefits from human review and refinement. The tool gives a solid base to build upon, saving hours of initial drafting time. Medium
+
+Prompting Tips Specific to draw.io + Antigravity
+
+Specify the diagram type explicitly: "Create a flowchart", "Create a sequence diagram", "Create a swimlane diagram"
+Mention the output tool: "Use open_drawio_mermaid" or "use the draw.io MCP tool"
+For complex diagrams, give the agent a base template or describe the shape library you want it to use
+Provide a brief plain-English description of the process first, then ask for the diagram — the agent plans better with narrative context
+Ask for Planning mode for complex multi-node diagrams; use Fast mode for simple flowcharts
