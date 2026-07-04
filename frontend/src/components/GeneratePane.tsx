@@ -4,14 +4,14 @@ import { Loader2, Play } from "lucide-react";
 import { useGenerateStream } from "../hooks/useStreams";
 import type { Project } from "../types";
 
-export function GeneratePane({ project, phase }: { project: Project; phase: "drafting" | "final" }) {
+export function GeneratePane({ project, phase }: { project: Project; phase: "final" }) {
   const stream = useGenerateStream(project.id, phase);
   const [instructions, setInstructions] = useState("");
 
   const run = () => {
     stream.start({
       instructions: instructions.trim() || undefined,
-      voice_id: phase === "final" ? project.voice_id : undefined
+      voice_id: project.voice_id
     });
   };
 
@@ -19,12 +19,8 @@ export function GeneratePane({ project, phase }: { project: Project; phase: "dra
     <section className="work-panel">
       <div className="panel-heading">
         <div>
-          <h2>{phase === "drafting" ? "Drafting" : "Final Content"}</h2>
-          <p>
-            {phase === "drafting"
-              ? "Generate the exhaustive WHAT-only draft."
-              : "Render the saved draft through the selected voice prompt."}
-          </p>
+          <h2>Final Content</h2>
+          <p>Render the saved draft through the selected voice prompt.</p>
         </div>
         <button className="primary" onClick={run} disabled={stream.isStreaming}>
           {stream.isStreaming ? <Loader2 className="spin" size={16} /> : <Play size={16} />}

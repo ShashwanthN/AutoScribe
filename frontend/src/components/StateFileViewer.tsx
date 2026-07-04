@@ -10,6 +10,12 @@ export function StateFileViewer({ projectId }: { projectId: string }) {
 
   return (
     <section className="state-panel">
+      <div className="panel-heading">
+        <div>
+          <h2>Project Files</h2>
+          <p>Review current outputs</p>
+        </div>
+      </div>
       <div className="tabs">
         {FILE_TABS.map((tab) => (
           <button

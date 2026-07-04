@@ -1,4 +1,3 @@
-
 # Running the Content Production App
 
 This is the end-to-end app (Ideation → Structure → Drafting → Final Content) built on top of
@@ -16,6 +15,8 @@ is untouched — the app only reads its output files from `outputs/`.
 
 ```bash
 # Python deps (adds fastapi, uvicorn, anyio to the existing requirements)
+-> create a python env before proceeding 
+
 pip install -r requirements.txt
 
 # Frontend deps
@@ -29,7 +30,7 @@ cd ..
 From the project root:
 
 ```bash
-python -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
+python3 -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Check it's up:

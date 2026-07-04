@@ -5,7 +5,7 @@ from fastapi.responses import StreamingResponse
 
 from backend.domain.phases import Phase, is_chat_phase
 from backend.domain.schemas import ChatRequest
-from backend.phases import ideation, structure
+from backend.phases import drafting, ideation, structure
 from backend.sse import stream_with_disconnect_guard
 from backend.storage import projects
 
@@ -26,7 +26,12 @@ async def chat(project_id: str, phase: str, payload: ChatRequest, request: Reque
     except (FileNotFoundError, ValueError):
         raise HTTPException(status_code=404, detail=f"Project not found: {project_id}") from None
 
-    source = ideation.chat(project_id, payload.message) if phase_value == Phase.IDEATION else structure.chat(project_id, payload.message)
+    if phase_value == Phase.IDEATION:
+        source = ideation.chat(project_id, payload.message)
+    elif phase_value == Phase.STRUCTURE:
+        source = structure.chat(project_id, payload.message)
+    else:
+        source = drafting.chat(project_id, payload.message)
 
     return StreamingResponse(stream_with_disconnect_guard(request, source), media_type="text/event-stream")
 
@@ -45,6 +50,11 @@ async def start_phase(project_id: str, phase: str, request: Request) -> Streamin
     except (FileNotFoundError, ValueError):
         raise HTTPException(status_code=404, detail=f"Project not found: {project_id}") from None
 
-    source = ideation.start(project_id) if phase_value == Phase.IDEATION else structure.start(project_id)
+    if phase_value == Phase.IDEATION:
+        source = ideation.start(project_id)
+    elif phase_value == Phase.STRUCTURE:
+        source = structure.start(project_id)
+    else:
+        source = drafting.start(project_id)
 
     return StreamingResponse(stream_with_disconnect_guard(request, source), media_type="text/event-stream")

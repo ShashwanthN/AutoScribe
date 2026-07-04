@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2, ChevronLeft } from "lucide-react";
 import { useCreateProject, useDeleteProject, useVoices } from "../hooks/useApi";
 import { CONTENT_TYPES, FILE_TABS } from "../constants";
 import type { ContentType, Project } from "../types";
@@ -7,11 +7,13 @@ import type { ContentType, Project } from "../types";
 export function ProjectSidebar({
   projects,
   selectedProjectId,
-  onSelectProject
+  onSelectProject,
+  onToggleSidebar
 }: {
   projects: Project[];
   selectedProjectId: string | null;
   onSelectProject: (projectId: string) => void;
+  onToggleSidebar: () => void;
 }) {
   const createProject = useCreateProject();
   const deleteProject = useDeleteProject();
@@ -38,11 +40,18 @@ export function ProjectSidebar({
 
   return (
     <aside className="sidebar">
-      <div className="brand-row">
+      <div className="brand-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <h1>Writer</h1>
-          <p>Content first. Voice second.</p>
+          <h1>AutoScribe</h1>
+          <p>End-To-End Content Generator</p>
         </div>
+        <button
+          className="icon-button ghost sidebar-collapse-btn"
+          onClick={onToggleSidebar}
+          title="Collapse Sidebar"
+        >
+          <ChevronLeft size={16} />
+        </button>
       </div>
 
       <div className="new-project">

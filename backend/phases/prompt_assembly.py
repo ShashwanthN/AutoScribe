@@ -180,11 +180,82 @@ def structure_regen_messages(
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
-def drafting_messages(
+
+
+def drafting_reply_messages(
     content_type: ContentType,
     ideation_file: str,
     structure_file: str,
-    instructions: str | None,
+    transcript: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    system = (
+        "You are the conversational Drafting partner in a content production system. "
+        "Your goal is to work with the user to co-create and refine an EXHAUSTIVELY detailed WHAT-only draft skeleton. "
+        "Keep the focus entirely on the draft structure, argument beats, key points/data, examples, transitions, "
+        "and phrasing anchors. Do not write final prose. Do not apply or imitate a voice. Do not optimize for style.\n\n"
+        "CONTENT BRIEF REFERENCE:\n"
+        + read_skill("3-Drafting/Content-Brief.md")
+        + "\n\nCONTENT-TYPE FRAMEWORKS:\n"
+        + read_frameworks(content_type)
+        + "\n\nREAD-ONLY IDEATION MATERIAL:\n"
+        + ideation_file
+        + "\n\nREAD-ONLY STRUCTURE MATERIAL:\n"
+        + structure_file
+        + "\n\nSYSTEM GUARDRAIL: Ask exactly one question or propose one draft section refinement at a time. "
+        "Do not write final prose and do not apply voice."
+        + REGEN_SIGNAL_INSTRUCTIONS
+    )
+    return [{"role": "system", "content": system}, *transcript]
+
+
+def drafting_regen_messages(
+    content_type: ContentType,
+    ideation_file: str,
+    structure_file: str,
+    current_file: str,
+    delta_messages: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    system = (
+        "You are the dedicated state-file regeneration agent for Phase 3 "
+        "Drafting in a content production system. You are a separate agent "
+        "from the conversational drafting partner — you never talk to the "
+        "user. You receive the CURRENT draft.md file plus only the NEW "
+        "conversation messages that happened since the file was last "
+        "regenerated. Merge the new material into the existing file: DO NOT "
+        "DELETE existing sections unless explicitly requested. You MUST retain "
+        "everything still useful (including manual user edits) and MERGE/APPEND "
+        "the new updates into it. The draft must match the "
+        "selected content type, framework, and structure, and must be detailed enough to "
+        "drive final content generation, but it must be WHAT-only draft (no final prose and "
+        "no voice styling)."
+    )
+    user = (
+        f"CONTENT TYPE: {content_type.value}\n\n"
+        "FRAMEWORKS:\n"
+        f"{read_frameworks(content_type)}\n\n"
+        "IDEATION MATERIAL:\n"
+        "```markdown\n"
+        f"{ideation_file}\n"
+        "```\n\n"
+        "STRUCTURE MATERIAL:\n"
+        "```markdown\n"
+        f"{structure_file}\n"
+        "```\n\n"
+        "CURRENT draft.md:\n"
+        "```markdown\n"
+        f"{current_file}\n"
+        "```\n\n"
+        "NEW MESSAGES SINCE LAST UPDATE:\n"
+        f"{_transcript_text(delta_messages)}\n\n"
+        "Regenerate the complete draft.md now."
+    )
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def drafting_initial_messages(
+    content_type: ContentType,
+    ideation_file: str,
+    structure_file: str,
 ) -> list[dict[str, str]]:
     system = (
         "You are Phase 3 Drafting in a content production system. Produce an "
@@ -208,8 +279,7 @@ def drafting_messages(
         "```markdown\n"
         f"{structure_file}\n"
         "```\n\n"
-        f"OPTIONAL INSTRUCTIONS:\n{instructions or '(none)'}\n\n"
-        "Generate draft.md now."
+        "Generate the complete initial draft.md now."
     )
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 

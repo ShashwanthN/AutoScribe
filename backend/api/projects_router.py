@@ -75,6 +75,47 @@ async def advance_project(project_id: str) -> ProjectMetadata:
     try:
         async with projects.get_project_lock(project_id):
             before = projects.get_project(project_id)
+
+            from backend.domain.phases import is_chat_phase, Phase, PhaseFile
+            if is_chat_phase(before.phase):
+                from backend.phases.base import load_transcript, read_regen_marker, messages_since_marker, PhaseAborted
+                from backend.phases.prompt_assembly import ideation_regen_messages, structure_regen_messages, drafting_regen_messages
+                from backend.phases.regen_agent import regen_state_file
+
+                transcript = load_transcript(project_id, before.phase)
+                marker = read_regen_marker(project_id, before.phase)
+                if marker < len(transcript):
+                    delta = messages_since_marker(transcript, marker)
+                    file_name = None
+                    label = ""
+                    prompts = []
+
+                    if before.phase == Phase.IDEATION:
+                        current_file = projects.read_state_file(project_id, PhaseFile.IDEATION)
+                        prompts = ideation_regen_messages(current_file, delta)
+                        file_name = PhaseFile.IDEATION
+                        label = "ideation.state_regen"
+                    elif before.phase == Phase.STRUCTURE:
+                        ideation_file = projects.read_state_file(project_id, PhaseFile.IDEATION)
+                        current_file = projects.read_state_file(project_id, PhaseFile.STRUCTURE)
+                        prompts = structure_regen_messages(before.content_type, ideation_file, current_file, delta)
+                        file_name = PhaseFile.STRUCTURE
+                        label = "structure.state_regen"
+                    elif before.phase == Phase.DRAFTING:
+                        ideation_file = projects.read_state_file(project_id, PhaseFile.IDEATION)
+                        structure_file = projects.read_state_file(project_id, PhaseFile.STRUCTURE)
+                        current_file = projects.read_state_file(project_id, PhaseFile.DRAFT)
+                        prompts = drafting_regen_messages(before.content_type, ideation_file, structure_file, current_file, delta)
+                        file_name = PhaseFile.DRAFT
+                        label = "drafting.state_regen"
+
+                    if file_name:
+                        try:
+                            async for _ in regen_state_file(project_id, before.phase, file_name, label, prompts, len(transcript)):
+                                pass
+                        except PhaseAborted:
+                            raise ValueError("Failed to complete pending file regeneration. Please try again.")
+
             metadata = projects.advance_project(project_id)
     except FileNotFoundError:
         raise _not_found(project_id) from None

@@ -24,6 +24,20 @@ class PhaseAborted(Exception):
 _REGEN_SIGNAL_RE = re.compile(r"\n*\[\[REGEN:(YES|NO)\]\]\s*$")
 
 
+def strip_markdown_code_fences(content: str) -> str:
+    content = content.strip()
+    if content.startswith("```"):
+        first_newline = content.find("\n")
+        if first_newline != -1:
+            body = content[first_newline + 1:]
+            if body.endswith("```"):
+                body = body[:-3]
+            content = body.strip()
+        else:
+            content = content.strip("`").strip()
+    return content
+
+
 def split_regen_signal(reply_text: str) -> tuple[str, bool]:
     """Split a reply agent's raw output into (visible_text, should_regen).
 
@@ -79,7 +93,7 @@ def load_transcript(project_id: str, phase: Phase) -> list[dict[str, str]]:
     return messages
 
 
-def append_transcript_message(project_id: str, phase: Phase, role: str, content: str) -> None:
+def append_transcript_message(project_id: str, phase: Phase, role: str, content: str, model_name: str | None = None) -> None:
     path = paths.transcript_file_path(project_id, phase)
     path.parent.mkdir(parents=True, exist_ok=True)
     entry = {
@@ -87,6 +101,8 @@ def append_transcript_message(project_id: str, phase: Phase, role: str, content:
         "content": content,
         "ts": datetime.now(timezone.utc).isoformat(),
     }
+    if model_name:
+        entry["model_name"] = model_name
     with path.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(entry, ensure_ascii=False, separators=(",", ":")))
         fh.write("\n")
@@ -109,8 +125,11 @@ async def stream_llm_completion(
     messages: list[dict],
     temperature: float,
     parts: list[str],
+    model_info: list[str] | None = None,
 ) -> AsyncIterator[ActivityEvent]:
     llm = StreamingLLM()
+    if model_info is not None:
+        model_info.append(llm.model)
     yield await emit_event(
         project_id,
         events.LLM_CALL,

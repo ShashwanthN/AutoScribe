@@ -29,6 +29,7 @@ async def start(project_id: str) -> AsyncIterator[ActivityEvent]:
             return
 
         intro_parts: list[str] = []
+        model_info: list[str] = []
         try:
             async for event in stream_llm_completion(
                 project_id,
@@ -37,13 +38,15 @@ async def start(project_id: str) -> AsyncIterator[ActivityEvent]:
                 prompt_assembly.ideation_intro_messages(),
                 0.7,
                 intro_parts,
+                model_info,
             ):
                 yield event
         except PhaseAborted:
             return
 
         intro_text = "".join(intro_parts).strip()
-        append_transcript_message(project_id, phase, "assistant", intro_text)
+        model_name = model_info[0] if model_info else None
+        append_transcript_message(project_id, phase, "assistant", intro_text, model_name=model_name)
         yield await emit_event(project_id, events.DONE, phase, {"ok": True})
 
 
@@ -56,6 +59,7 @@ async def chat(project_id: str, message: str) -> AsyncIterator[ActivityEvent]:
         transcript = load_transcript(project_id, phase)
 
         reply_parts: list[str] = []
+        model_info: list[str] = []
         try:
             async for event in stream_llm_completion(
                 project_id,
@@ -64,13 +68,15 @@ async def chat(project_id: str, message: str) -> AsyncIterator[ActivityEvent]:
                 prompt_assembly.ideation_reply_messages(transcript),
                 0.7,
                 reply_parts,
+                model_info,
             ):
                 yield event
         except PhaseAborted:
             return
 
         visible_text, should_regen = split_regen_signal("".join(reply_parts))
-        append_transcript_message(project_id, phase, "assistant", visible_text)
+        model_name = model_info[0] if model_info else None
+        append_transcript_message(project_id, phase, "assistant", visible_text, model_name=model_name)
 
         if should_regen:
             transcript = load_transcript(project_id, phase)

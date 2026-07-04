@@ -18,6 +18,7 @@ STATE_FILES: dict[PhaseFile, str] = {
 TRANSCRIPT_FILES: dict[Phase, str] = {
     Phase.IDEATION: "chat_ideation.jsonl",
     Phase.STRUCTURE: "chat_structure.jsonl",
+    Phase.DRAFTING: "chat_drafting.jsonl",
 }
 
 

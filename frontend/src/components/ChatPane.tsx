@@ -6,7 +6,7 @@ import { useChatStream, useStartPhase } from "../hooks/useStreams";
 import { stripRegenMarker } from "../lib/regenMarker";
 import type { Project } from "../types";
 
-export function ChatPane({ project, phase }: { project: Project; phase: "ideation" | "structure" }) {
+export function ChatPane({ project, phase }: { project: Project; phase: "ideation" | "structure" | "drafting" }) {
   const transcript = useTranscript(project.id, phase);
   const chatStream = useChatStream(project.id, phase);
   const startPhase = useStartPhase(project.id, phase);
@@ -58,15 +58,27 @@ export function ChatPane({ project, phase }: { project: Project; phase: "ideatio
     <section className="work-panel">
       <div className="panel-heading">
         <div>
-          <h2>{phase === "ideation" ? "Ideation" : "Structure"}</h2>
-          <p>{phase === "ideation" ? "Capture raw material and pressure-test the idea." : "Resolve the content shape one question at a time."}</p>
+          <h2>
+            {phase === "ideation"
+              ? "Ideation"
+              : phase === "structure"
+              ? "Structure"
+              : "Drafting"}
+          </h2>
+          <p>
+            {phase === "ideation"
+              ? "Capture raw material and pressure-test the idea."
+              : phase === "structure"
+              ? "Resolve the content shape one question at a time."
+              : "Iterate and co-create the draft skeleton."}
+          </p>
         </div>
       </div>
 
       <div className="transcript">
         {history.map((item, index) => (
           <div key={`${item.role}-${index}`} className={`message ${item.role}`}>
-            <strong>{item.role}</strong>
+            <strong>{item.role}{item.model_name ? ` · ${item.model_name}` : ""}</strong>
             <ReactMarkdown>{item.content}</ReactMarkdown>
           </div>
         ))}

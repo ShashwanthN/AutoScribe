@@ -5,7 +5,7 @@ from collections.abc import AsyncIterator
 from backend.domain import events
 from backend.domain.phases import Phase, PhaseFile
 from backend.domain.schemas import ActivityEvent
-from backend.phases.base import emit_event, stream_llm_completion, write_regen_marker
+from backend.phases.base import emit_event, stream_llm_completion, strip_markdown_code_fences, write_regen_marker
 from backend.storage import projects
 
 
@@ -32,7 +32,7 @@ async def regen_state_file(
     async for event in stream_llm_completion(project_id, phase, label, messages, 0.2, parts):
         yield event
 
-    state_text = "".join(parts).strip() + "\n"
+    state_text = strip_markdown_code_fences("".join(parts)) + "\n"
     projects.write_state_file(project_id, file_name, state_text)
     write_regen_marker(project_id, phase, marker_count)
     yield await emit_event(

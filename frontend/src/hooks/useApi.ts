@@ -30,7 +30,7 @@ export function useTranscript(projectId: string | null, phase: Phase) {
   return useQuery({
     queryKey: ["transcript", projectId, phase],
     queryFn: () => api.getTranscript(projectId as string, phase),
-    enabled: Boolean(projectId) && (phase === "ideation" || phase === "structure")
+    enabled: Boolean(projectId) && (phase === "ideation" || phase === "structure" || phase === "drafting")
   });
 }
 

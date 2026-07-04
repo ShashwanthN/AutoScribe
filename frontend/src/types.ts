@@ -37,6 +37,7 @@ export interface TranscriptMessage {
   role: "user" | "assistant" | "system";
   content: string;
   ts?: string;
+  model_name?: string;
 }
 
 export interface ActivityEvent {

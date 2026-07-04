@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { Settings } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Settings, ChevronDown, ChevronUp } from "lucide-react";
 import { useActivity } from "../hooks/useApi";
 import { useActivityStream } from "../hooks/useActivityStream";
 import type { ActivityEvent } from "../types";
@@ -20,6 +20,17 @@ function dedupeById(events: ActivityEvent[]): ActivityEvent[] {
 export function ActivityLogPane({ projectId }: { projectId: string }) {
   const history = useActivity(projectId);
   const { events: live, liveStreams } = useActivityStream(projectId);
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    return localStorage.getItem("activityCollapsed") === "true";
+  });
+
+  const toggleCollapsed = () => {
+    setIsCollapsed((prev) => {
+      const next = !prev;
+      localStorage.setItem("activityCollapsed", next.toString());
+      return next;
+    });
+  };
 
   // Neither history (server-filtered) nor live (never accumulates raw
   // tokens — see useActivityStream) can grow unbounded, so this list stays
@@ -31,20 +42,25 @@ export function ActivityLogPane({ projectId }: { projectId: string }) {
   const streaming = Object.values(liveStreams);
 
   return (
-    <div className="activity-panel">
-      <div className="activity-heading">
-        <Settings size={16} />
-        <h2>Activity</h2>
+    <div className={`activity-panel ${isCollapsed ? "collapsed" : ""}`}>
+      <div className="activity-heading" onClick={toggleCollapsed} style={{ cursor: "pointer", userSelect: "none" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Settings size={16} />
+          <h2>Activity</h2>
+        </div>
+        {isCollapsed ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
       </div>
-      <div className="activity-list">
-        {streaming.map((stream) => (
-          <StreamRow key={stream.key} stream={stream} />
-        ))}
-        {finished.map((event) => (
-          <ActivityRow key={event.id} event={event} />
-        ))}
-        {streaming.length === 0 && finished.length === 0 ? <div className="panel-placeholder">No activity yet.</div> : null}
-      </div>
+      {!isCollapsed && (
+        <div className="activity-list">
+          {streaming.map((stream) => (
+            <StreamRow key={stream.key} stream={stream} />
+          ))}
+          {finished.map((event) => (
+            <ActivityRow key={event.id} event={event} />
+          ))}
+          {streaming.length === 0 && finished.length === 0 ? <div className="panel-placeholder">No activity yet.</div> : null}
+        </div>
+      )}
     </div>
   );
 }

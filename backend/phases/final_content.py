@@ -6,7 +6,7 @@ from backend.domain import events
 from backend.domain.phases import Phase, PhaseFile
 from backend.domain.schemas import ActivityEvent
 from backend.phases import prompt_assembly
-from backend.phases.base import PhaseAborted, emit_event, stream_llm_completion
+from backend.phases.base import PhaseAborted, emit_event, stream_llm_completion, strip_markdown_code_fences
 from backend.storage import projects
 from backend.storage.voice_profiles import get_voice_profile
 
@@ -64,7 +64,7 @@ async def generate(
         except PhaseAborted:
             return
 
-        final_text = "".join(final_parts).strip() + "\n"
+        final_text = strip_markdown_code_fences("".join(final_parts)) + "\n"
         projects.write_state_file(project_id, PhaseFile.FINAL_CONTENT, final_text)
         yield await emit_event(
             project_id,

@@ -44,8 +44,8 @@ def required_file_for_advance(phase: Phase) -> PhaseFile:
 
 
 def is_chat_phase(phase: Phase) -> bool:
-    return phase in {Phase.IDEATION, Phase.STRUCTURE}
+    return phase in {Phase.IDEATION, Phase.STRUCTURE, Phase.DRAFTING}
 
 
 def is_generate_phase(phase: Phase) -> bool:
-    return phase in {Phase.DRAFTING, Phase.FINAL}
+    return phase in {Phase.FINAL}

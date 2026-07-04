@@ -35,7 +35,7 @@ function useStreamState() {
   return { state, startState, setModel, appendOutput, setError, stopState };
 }
 
-export function useChatStream(projectId: string, phase: "ideation" | "structure") {
+export function useChatStream(projectId: string, phase: "ideation" | "structure" | "drafting") {
   const queryClient = useQueryClient();
   const stream = useStreamState();
   // React state updates from startState() are batched/async, so a second call
@@ -101,7 +101,7 @@ export function useChatStream(projectId: string, phase: "ideation" | "structure"
   return { ...stream.state, start };
 }
 
-export function useStartPhase(projectId: string, phase: "ideation" | "structure") {
+export function useStartPhase(projectId: string, phase: "ideation" | "structure" | "drafting") {
   const queryClient = useQueryClient();
   const stream = useStreamState();
   const inFlight = useRef(false);
@@ -133,6 +133,11 @@ export function useStartPhase(projectId: string, phase: "ideation" | "structure"
         if (frame.event === "error") {
           stream.setError(String(event.payload.message ?? "Failed to start phase"));
         }
+        if (frame.event === "file_changed") {
+          queryClient.invalidateQueries({ queryKey: ["file", projectId, event.payload.name] });
+          queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+          queryClient.invalidateQueries({ queryKey: ["projects"] });
+        }
       });
 
       queryClient.invalidateQueries({ queryKey: ["transcript", projectId, phase] });
@@ -147,7 +152,7 @@ export function useStartPhase(projectId: string, phase: "ideation" | "structure"
   return { ...stream.state, start };
 }
 
-export function useGenerateStream(projectId: string, phase: Extract<Phase, "drafting" | "final">) {
+export function useGenerateStream(projectId: string, phase: Extract<Phase, "final">) {
   const queryClient = useQueryClient();
   const stream = useStreamState();
   const inFlight = useRef(false);
@@ -168,7 +173,7 @@ export function useGenerateStream(projectId: string, phase: Extract<Phase, "draf
         throw new Error(await response.text());
       }
 
-      const expectedLabel = phase === "drafting" ? "drafting.generate" : "final.generate";
+      const expectedLabel = "final.generate";
       await readSseStream(response.body, (frame) => {
         const event = frame.data as ActivityEvent;
         if (frame.event === "llm_call" && event.payload.label === expectedLabel && typeof event.payload.model === "string") {
