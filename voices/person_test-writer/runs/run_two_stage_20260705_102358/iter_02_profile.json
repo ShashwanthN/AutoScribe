@@ -1,0 +1,65 @@
+{
+  "active_voice_ratio": 0.95,
+  "person": "mixed",
+  "formality_register": 0.1,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "Peer enthusiast sharing personal victories and discoveries. Never adopts an advisory or instructional stance. The writer is alongside the reader, not above them. Uses casual, humorous language and positions themselves as a fellow user rather than an expert or authority.",
+  "word_choice_style": "Colloquial vocabulary with frequent contractions, internet slang (e.g., 'Af', 'Cya'), and inconsistent capitalization. Uses simple, everyday words. Strictly avoids any business or startup terminology (e.g., 'market fit', 'validation', 'thesis', 'PMF', 'pain points', 'execution velocity'). No precise quantitative metrics. No formal or abstract nouns. Includes pop culture references for analogy. Describes everything in plain, concrete language.",
+  "sentence_construction": "Mostly simple and compound sentences, often run-on with commas. Frequent use of dashes to pivot or add afterthought, but limited to one per section. Many sentences start with 'I', 'It', or 'You'. Bullet-pointed lists substitute for paragraph development. Subject-verb-object structure dominant. Sentences are short and direct; average 10-15 words. No multiple embedded clauses. When presenting alternatives or options, uses a run-on sequence of [option] or [option] or [option] at least once.",
+  "punctuation_details": "Inconsistent capitalization: 'i' sometimes lower-case. Always uses a space before commas (e.g., 'word , word'). Dashes used with surrounding spaces. Uses en dash or hyphen for pivots, never em dash. Limits dash usage to at most once per section. Uses bold for emphasis but no italics. No semicolons. No ellipses. Periods used but sometimes omitted in informal sign-offs. Question marks used in headers. Never uses parenthetical asides in body text.",
+  "rhythm_description": "Saccadic rhythm: very short sentences or sentence fragments alternating with longer, comma-rich strings. Bullet points interrupt the flow. Overall staccato, mimicking spoken thought. Never writes a paragraph longer than two sentences. Text is broken into short blocks or bullet points.",
+  "sentence_opener_patterns": "Frequently opens with 'I', 'It', 'You', 'Because' (in bullets), 'Yeah', 'Once'. Many sentences begin with a pronoun or conjunction. Rarely starts with a prepositional phrase or adverb. Never starts a sentence with third-person subjects (e.g., 'The founder...', 'A team...').",
+  "sentence_ending_patterns": "Usually ends with a period. Many sentences end with a noun or pronoun. No strong pattern; often end with the object of the verb. Bullet-pointed items often end without punctuation.",
+  "hedging_style": "Minimal hedging. Uses 'maybe' occasionally but mostly direct, assertive statements. Does not use 'I think' or 'perhaps' frequently. Rare qualifiers.",
+  "emphasis_style": "Uses bold for headers and key terms. Relies on sentence fragments for punch. Uses repetition of key phrases sparingly. Employs dashes to set off an amplifying clause, limited to one per section. Does not use em dashes. Focuses on short declarative statements for emphasis.",
+  "analogy_style": "Rare; one pop culture analogy or humorous comparison typically appears once to illustrate a point. Analogies are brief and humorous. Otherwise relies on direct metaphor.",
+  "humor_style": "Dry, self-deprecating humor through slang, ironic understatement, and casual registers. Uses pop culture reference for comedic effect. Light tone. Humor appears at least once, often through casual asides.",
+  "argument_style": "Not argumentative; primarily a list of personal reasons and feature descriptions. Structural move: state a question as header, then list bullet points. Does not develop a thesis or address counterpoints. Never uses narrative stories to build a logical argument. Always presents points as personal observations or feature lists.",
+  "jargon_style": "Avoids all jargon and specialized terminology entirely. If a concept must be referenced, describes it in plain everyday words without using the official term. No business or technical terms left unexplained.",
+  "parenthetical_style": "Almost completely absent. Only used once in the entire piece, and only in a header (e.g., '(in my POV)'). Does not use parenthetical asides in body text.",
+  "structural_conventions": "Short sections with bold headers. Heavy use of bullet-point lists. Single-sentence paragraphs. No block text. Uses 'TL;DR' summary and an informal sign-off. No images or links. Short overall (under 500 words). Every paragraph is at most two sentences. Uses bullet-pointed lists for any enumeration or sequence; no inline lists.",
+  "voice_fingerprints": [
+    {
+      "pattern": "Expresses agreement or understanding then pivots with a dash and a modifying phrase, but uses this move no more than once in the entire article: [Agreement phrase] - [qualification or explanation].",
+      "scope": "universal"
+    },
+    {
+      "pattern": "When a section header is a question asking 'Why' or similar, the following bullet-pointed reasons start with 'Because' as a complete statement. Uses this pattern at least once whenever such a header appears.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Inconsistent capitalization of first-person pronoun: sometimes 'I' capitalized, sometimes 'i' lower-case within the same paragraph.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Chooses internet slang 'Af' as an intensifier attached to an adjective without formal punctuation: [adjective] Af.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Ends the piece with a two-element sign-off: a TL;DR summary line followed by an informal closing ('Cya') on its own line.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "At least once in the article, uses a run-on sequence with three or more alternatives linked by 'or', producing a run-on feel: [clause] or [clause] or [clause].",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Formats a section header as a direct question followed by a parenthetical perspective qualifier, but uses this pattern no more than once in the entire piece: [Question] (in my POV).",
+      "scope": "context_sensitive"
+    }
+  ],
+  "negative_space": [
+    "Never uses semicolons.",
+    "Never writes a paragraph longer than two sentences; always breaks into short sections or bullet points.",
+    "Never uses formal transition words (however, therefore, moreover).",
+    "Never writes in third-person objective; always first and second person.",
+    "Never uses imperative commands or numbered step-by-step instructions.",
+    "Never includes code blocks or tables.",
+    "Never uses an advisory or directive tone (e.g., 'you should', 'you must').",
+    "Never uses precise quantitative metrics (percentages, exact numbers, statistics).",
+    "Never uses the negation-contrast pattern (e.g., 'not X, but Y').",
+    "Never uses business jargon or startup terminology (e.g., 'market fit', 'validation', 'thesis', 'PMF', 'execution velocity')."
+  ],
+  "open_observations": "The writer displays grammatical idiosyncrasies (e.g., missing spaces after punctuation, subject-verb disagreement) that are likely intentional to convey a laid-back, spontaneous tone. The overall effect mimics oral speech transcribed, with a strong personal brand of casualness. The profile enforces strict limits on rhetorical patterns to avoid AI-generated tells."
+}

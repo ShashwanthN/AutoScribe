@@ -1,0 +1,61 @@
+{
+  "active_voice_ratio": 0.98,
+  "person": "mixed",
+  "formality_register": 0.05,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "fellow enthusiast sharing a personal workaround with a peer, not an authority",
+  "word_choice_style": "Very casual, with slang (Af), missing apostrophes in contractions (dont, isnt, its, thats), occasional lowercase 'i', and everyday vocabulary. Uses contractions but without apostrophes. Direct and simple.",
+  "sentence_construction": "Short to medium sentences, often simple or run-on. Clauses joined loosely with commas or no punctuation. Fragments used. Loose, stream-of-consciousness syntax.",
+  "punctuation_details": "Apostrophes consistently omitted in contractions. Hyphens used for compounds (markdown-based, note-taking). Em dash appears once (—) but not consistently. Bullet points lack terminal punctuation if items are short. No semicolons. Periods end most sentences but are sometimes omitted after single-word closing (Cya).",
+  "rhythm_description": "Choppy, staccato. Starts with a longer statement, then shifts into rapid-fire bullet points. Bullet lists dominate. Varies between one-liners and very short paragraphs.",
+  "sentence_opener_patterns": "I, You, It, Because, Yeah, So, TL;DR. Bullet points open with dashes and subject fragments.",
+  "sentence_ending_patterns": "Ends with period typically. Bullet points without periods if they are fragments. Headings end with question marks or nothing. The article ends abruptly with 'Cya.'",
+  "hedging_style": "Minimal. Occasional 'maybe for you too'. Generally assertive or offhand, not tentative.",
+  "emphasis_style": "All-caps slang (Af), capitalization of 'Title', and blunt phrasing (flawless, perfect). No italics, bold sparingly used for headings.",
+  "analogy_style": "Rare. One pop-culture reference (Jack Harlow) posed as analogy for thinking. Another is the 'second brain' metaphor which is standard. Not a core mechanism.",
+  "humor_style": "Understated and self-deprecating (slow Af), playful framing of headings (huh what?, Cya). Light tone.",
+  "argument_style": "Not argumentative. Uses bullet points to present reasons or features. No formal claim-evidence-warrant structure. Instructional and persuasive through personal testimony.",
+  "jargon_style": "Introduces terms (Markdown, graph view, Syncthing) without explanation or defines them briefly. Assumes reader knows the domain or can infer.",
+  "parenthetical_style": "Infrequent parentheticals; when they appear they are short asides (in my POV, like jack harlow says…). Not a habitual feature.",
+  "structural_conventions": "Short sections with markdown headers (###, ##). Heavy use of bullet lists. A TL;DR and a concluding 'Thats it Cya.' as final header. No numbered steps in first part; second part uses plain numbered steps.",
+  "voice_fingerprints": [
+    {
+      "pattern": "Consistently omits apostrophes in contractions: writes dont/isnt/its/thats/cya (standing for 'see you') instead of don't/isn't/it's/that's/cya.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Uses conversational, fragmentary headings that speak directly to the reader or question the term: 'Second Brain huh what?', 'Why do you need a note taking app? (in my POV)', 'Thats it Cya.'",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Regularly uses 'Af' (capitalized) for emphasis, placed after an adjective.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Inconsistent capitalization: sometimes writes 'i' lowercase in the middle of sentences, and other lowercase instances where standard English would capitalize (e.g., 'Yeah i get it').",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Ends the article and some sections not with a standard sign-off but with a clipped, colloquial close: 'Thats it Cya.'",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Uses bullet lists where items are a mix of full sentences and sentence fragments, without consistent punctuation at the end.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Grammatical subject-verb disagreement in constructions like 'Both devices needs' (singular verb for plural subject).",
+      "scope": "universal"
+    }
+  ],
+  "negative_space": [
+    "Never uses perfectly correct grammar — always omits apostrophes, sometimes has subject-verb disagreement, and runs sentences together without proper punctuation.",
+    "Never uses formal argument structures like blockquoted objections/rebuttals or elaborately named sections (e.g., 'Section 1: The Hook').",
+    "Never uses em dashes with spaces or uses them as standard punctuation; avoids elaborate parenthetical inserts.",
+    "Never writes in a detached third-person analytical register; always uses first or second person, strongly personal.",
+    "Never uses multi-sentence extended analogies or hypothetical scenarios to illustrate a point.",
+    "Never uses inclusive 'we' to address the reader as a group; always 'I' and 'you' individually."
+  ],
+  "open_observations": "The writing feels like a spoken monologue transcribed. Stream-of-consciousness, unpolished, with rough edges that become a trademark. The author is comfortable with imperfection, which makes the voice feel authentic and approachable."
+}

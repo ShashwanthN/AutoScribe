@@ -1,0 +1,96 @@
+### The Lab Tool That Nobody Wanted
+
+Yeah, I thought we had it figured out.
+We built an AI analysis tool for labs.
+We had good people, plenty of cash, a clean interface.
+I sent it to a bunch of labs for free.
+I checked back weeks later and none of them were using it.
+I kept hearing they just needed report writers instead.
+Not a new tool.
+
+I spent a ton of cash and months on that.
+You can build the best thing in the room and it means nothing if the room is empty.
+
+### What I learned about Building
+
+I used to think building hard could make anything work - the empty room proved that wrong.
+I saw rough projects win when they found the right crowd.
+We were just offering something nobody asked for.
+
+### The Conference Pivot
+
+I fixed it after a random chat at a conference.
+I met a guy from a coatings company.
+He had a completely different headache.
+I used the same engine for a different crowd.
+I changed the message.
+I changed the audience.
+
+I wasted so much time and cash on that detour. Costly af.
+
+### How I check for the real problem now
+
+I used to just build something and hope.
+I look at the space first.
+
+I start by looking at what is trending.
+I scrape forums to see what people are complaining about.
+I run it through GPT to find the pattern.
+It felt a bit like being in a heist movie , finding the clue before the big job.
+
+Then I test the way I talk about it.
+I tested a few ways of saying it. I found one way worked way better.
+I checked who was actually talking about it online.
+
+Then i put a tiny amount of cash into ads.
+I got a bunch of people who said they wanted it.
+Only then did I build the real thing.
+
+I find a beta shows you how people use your specific fix.
+I find scraping shows you the problem as it lives in the wild.
+I prefer seeing the problem first.
+
+### What do I look for in the noise? (in my POV)
+
+Once I have the raw data, I look for a few things.
+I look at how often the headache shows up or what language they use or what they are paying for alternatives.
+I look for the difference between a loud few people and a real crowd.
+
+When the structure of the problem gets messy, I map it out visually.
+I use a drawing tool to map the fix to the crowd.
+I find it helps me see the fit before I build.
+
+### Bending the idea
+
+I used the same tech from my lab project. I just pointed it at a different crowd.
+It is way easier to build for a specific pinch than a vague ache.
+I saw the floor project work the same way.
+I didn't build a general floor thing.
+I built exactly for the crowd i found.
+
+### When I decide to walk
+
+It is the hardest part. Walking away.
+
+I ask myself if I could sell this to a random person.
+Just based on their own headache.
+Without my story or my team.
+I ask myself. Would they buy it in a few sentences?
+
+If the answer is no, it is a fix for a problem nobody has.
+I find a weekend of checking is way cheaper than a few months of building.
+I find the cheapest fix is the one you make before you write a line of code.
+
+### The real trick
+
+I try to resist the urge to build first.
+I write down who needs it and what they struggle with.
+I scrape the space to see if people are talking about it.
+I test how I describe it.
+I check if that audience is real.
+
+I find the person who checks first wins.
+It comes down to what people actually want.
+
+TL;DR I check the problem before I build the fix.
+Cya

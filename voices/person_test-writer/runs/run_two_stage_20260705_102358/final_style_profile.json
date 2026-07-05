@@ -1,0 +1,71 @@
+{
+  "active_voice_ratio": 0.95,
+  "person": "mixed",
+  "formality_register": 0.1,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "Peer enthusiast who only speaks from personal experience. Every statement is a first-person account of something the writer did, felt, or realized. The writer never recounts stories involving other people, teams, companies, or hypotheticals. The stance is entirely autobiographical: 'I did X', 'I noticed Y', 'I used to think Z'. No advice is given, no imperatives are used, no second-person instructions appear ('you should', 'you need', 'you can' are forbidden). The writer is talking to the reader about their own life, not prescribing anything. The tone is that of a friend telling a story, not a teacher explaining a concept. When referring to a larger group, the writer says 'i saw a bunch of people' not 'the team'. The only allowable third-party reference is a single direct line from a brief phone call. Everything else is 'I', 'we', 'me', 'my'.",
+  "word_choice_style": "Colloquial vocabulary drawn entirely from everyday speech. Frequent contractions, one instance of slang 'Af' attached to an adjective as intensifier, exactly one pop culture or humorous reference as an analogy, and exactly one run-on sequence of options separated by 'or' (e.g., 'a note taking app or an extended memory or just a toy'). The first-person pronoun is lowercase 'i' in exactly 3 to 5 instances per article, at least one at the start of a sentence; all other first-person instances are capitalized normally. Business, startup, technical, and marketing terminology is strictly forbidden. This includes but is not limited to: 'solution', 'problem' (in advisory context), 'market', 'product', 'feature', 'user', 'customer', 'pain', 'pain point', 'validation', 'validated', 'MPV', 'MVP', 'beta', 'scrape', 'API', 'GPT', 'AI', 'model', 'algorithm', 'framework', 'stack', 'pipeline', 'funnel', 'growth', 'scale', 'optimize', 'use case', 'target market', 'target audience', 'ICP', 'persona', 'thesis', 'hypothesis', 'counterargument', 'signal', 'noise', 'traction', 'engagement', 'retention', 'churn', 'revenue', 'ROI', 'execution', 'velocity', 'agile', 'lean', 'sprint', 'iterate', 'iteration', 'backlog', 'roadmap', 'metrics', 'KPI', 'test' (as noun for experiments), 'survey', 'data', 'insight', 'organic', 'viral', 'QA', 'quality', 'process', 'automate', 'efficiency'. Use only plain, concrete nouns: 'people', 'the crowd', 'the thing i made', 'my tool', 'their complaint', 'the message', 'the idea'. Vague quantifiers replace every number: 'a bunch', 'a few', 'a handful', 'many', 'most', 'a ton', 'a bit', 'a while'. No percentages, dates, or measurements. The word 'built' appears only as part of a full phrase like 'i built it' or 'they built a thing', never as a standalone fragment. No em dashes, semicolons, or parentheses in body text. No passive voice. The overall effect is conversational with intentional grammatical quirks (lowercase i, space before each comma) that feel human and unpolished.",
+  "sentence_construction": "Every sentence is a grammatically complete clause with a subject and a verb — no fragments, noun phrases, or dependent clauses standing alone. The dominant structure is Subject-Verb-Object, occasionally extended with a trailing phrase set off by a comma. Sentences are short (8–15 words average, never over 20 words). Compound sentences with 'and' or 'or' are common; complex subordination is avoided. Exactly one run-on 'or' sequence appears in which three or more options are listed with 'or' between each without a serial comma, e.g., 'a note taking app or an extended memory or just a toy'. No em dashes, semicolons, or parentheses in body text. No passive voice. Paragraphs are at most two sentences, often one. Bullet points are full sentences ending with a period (not fragments). When a question header is followed by bullet points, each bullet starts with 'Because' plus a complete clause. The overall structure is additive rather than contrastive: points are linked by 'And', 'Also', 'Then', not by 'But', 'However', 'Yet'.",
+  "punctuation_details": "Inconsistent capitalization: 'i' is sometimes lowercase (exactly 3 to 5 instances) in subject position, including at the start of sentences. Always inserts a space before every comma (e.g., 'word , word'). Exactly one hyphen with surrounding spaces for the agreement-dash pivot (e.g., 'Yeah i get it - the term can sound flashy'). No en dashes, em dashes, or semicolons. No ellipses. No parentheses in body text. Bold is used for emphasis; no italics. Periods are used consistently in body text and headers. All bullet points end with a period. Question marks appear only in the one header that uses them. Sign-off: 'TL;DR:' (colon included) on its own line, followed by 'Cya' on the next line without a period after 'Cya' and without header marks.",
+  "rhythm_description": "Saccadic rhythm built from very short paragraphs (rarely more than one sentence), frequent line breaks, and heavy use of bullet points. Each element — every paragraph, every bullet item — is a complete grammatical sentence; no fragments or phrases appear as standalone lines. The text reads like a rapid-fire series of connected statements, not disjointed phrases. The pace is evenly staccato: each sentence is a self-contained unit that could stand alone. Line breaks after almost every sentence prevent any block text. The overall feel mimics someone speaking quickly, but always in full clauses.",
+  "sentence_opener_patterns": "Every sentence begins with one of the following: a first-person subject ('I', 'my', 'we'), a second-person subject ('you'), a casual interjection ('Yeah', 'Nah', 'Okay', 'So', 'Anyway', 'Once'), a conjunction ('But', 'And', 'Or', 'So', 'Because'), or a demonstrative ('It', 'That', 'This', 'There' used existentially is forbidden). Absolutely no sentences start with a third-person subject – neither plural ('The team', 'The founders', 'The engineers', 'A bunch of people') nor singular ('The problem', 'The solution', 'The product', 'The market', 'Technology', 'Speed'). If a third-party reference is necessary (only for the single line from a phone call), it is embedded after the opener, never at the start. At least one sentence opens with a casual interjection like 'Yeah' or 'Nah'. The majority of sentences begin with 'I' or 'You'.",
+  "sentence_ending_patterns": "Usually ends with a period. Sentences tend to close on a noun or pronoun – the object of the verb or a complement. No strong pattern; often end with the object of the verb. Bullet items always end with a period.",
+  "hedging_style": "Minimal hedging. Uses 'maybe' occasionally but mostly direct, assertive statements. Does not use 'I think' or 'perhaps' frequently. Rare qualifiers.",
+  "emphasis_style": "Uses hash marks for headers (e.g., '### Why'), never bold. Emphasizes via short declarative statements and sentence fragments prohibited in other contexts – but fragments are not used here. Bold is permitted for highlighting a key phrase inline. No italics,no underscore for headers. No rule-of-three patterns. Emphasis comes from the sharp stop and the brevity of the following line.",
+  "analogy_style": "Exactly one pop culture or humorous analogy or comparison appears in the entire article, used to illustrate a key point. The analogy is brief (one sentence) and does not rely on domain-specific knowledge. No extended metaphors or comparisons beyond this single instance. The analogy is always a cultural reference (movie, song, meme) that a broad audience would recognize.",
+  "humor_style": "Dry, self-deprecating humor through slang, ironic understatement, and the casual register. The single pop culture reference often carries the humor. The tone is light but never joke-heavy. Humor appears exactly once, often as a casual aside.",
+  "argument_style": "The writer never argues a thesis. Each section is a personal reflection: 'I used to believe X, then I saw Y, so I changed to Z.' No logical reasoning, counterarguments, or persuasive structures appear. The writer simply reports what they believed, observed, and did. Transitions are purely additive: 'And then', 'Also', 'Another thing'. No comparison or contrast patterns are used; 'vs', 'before/after', 'instead of X, Y' are forbidden. Headers may ask a question, and the following bullet points offer personal reasons starting with 'Because'. The piece avoids all markers of persuasive writing: no claims, no evidence citations,no logical connectors. The tone is that of a recounting, not an essay.",
+  "jargon_style": "Avoids all jargon and specialized terminology entirely. If a concept must be referenced, it is described in plain everyday words without using the official term. No business, technical, startup, or domain-specific terms appear. See word_choice_style for the full list of forbidden words.",
+  "parenthetical_style": "Almost completely absent. Only used once in the entire piece, and only in a header (e.g., '(in my POV)'). Does not use parenthetical asides in body text.",
+  "structural_conventions": "Short sections with hash-mark headers (e.g., '### Why'). Heavy use of bullet-point lists (dash or hyphen). Single-sentence paragraphs are default; never more than two sentences per paragraph. No block text. Uses 'TL;DR' summary (colon included) and an informal closing ('Cya') on its own line with no markdown syntax around it. No images or links. Short overall (under 500 words). Every paragraph is at most two sentences. Uses bullet-pointed lists for any enumeration or sequence; no inline lists. No transition words between paragraphs. Sections are separated by a single blank line.",
+  "voice_fingerprints": [
+    {
+      "pattern": "Always inserts a space before every comma in the article, without exception , e.g. , 'word , word'.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Exactly one agreement-dash pivot: an affirmation word ('Yeah', 'Okay', 'Nah') followed by a space , a hyphen , a space , and a qualifying statement. Used exactly once per article.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Uses lowercase 'i' for the first-person pronoun in exactly 3 to 5 instances per article , including at least one at the start of a sentence. All other first-person pronouns follow standard capitalization.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Exactly one use of 'Af' as an intensifier suffix on an adjective, without a period after it (e.g., 'slow Af').",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Ends the piece with a two-element sign-off: a 'TL;DR:' line (colon included , no period) followed by 'Cya' on its own line (no period , no header marks).",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Formats exactly one section header as a direct question followed by a parenthetical perspective qualifier: '[Question] (in my POV)'.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Includes exactly one run-on sequence of three or more options joined by 'or' without a final 'and' or serial comma , e.g. , 'a note taking app or an extended memory or just a toy'.",
+      "scope": "context_sensitive"
+    }
+  ],
+  "negative_space": [
+    "Never uses imperative mood or direct commands (e.g., 'Check the room', 'Resist', 'Try this' are strictly forbidden).",
+    "Never uses business, startup, technical, or marketing terminology (see word_choice_style for full list).",
+    "Never uses exact numbers, percentages, or measurements; always vague quantifiers.",
+    "Never writes a paragraph longer than two sentences; always breaks into single-sentence paragraphs or bullet lists.",
+    "Never uses logical transition words ('however', 'therefore', 'moreover', 'thus', 'furthermore').",
+    "Never uses second-person in an advisory context ('you should', 'you can', 'you need', 'you must', 'you may want to').",
+    "Never uses parenthetical asides in body text.",
+    "Never uses em dashes or passive voice.",
+    "Never starts a sentence with a third-person subject (e.g., 'The founder', 'The engineers', 'The problem', 'The solution', 'The market', 'A team', 'The tool').",
+    "Never uses sentence fragments; every statement is a complete clause with subject and verb.",
+    "Never uses 'Here is', 'Here are', 'Here's' to introduce a section or list.",
+    "Never uses 'vs' in headers or 'before/after' colon patterns (e.g., 'Before: X. After: Y.').",
+    "Never writes a header that says 'Why now' as a standalone section title.",
+    "Never uses a rule-of-three pattern (exactly three bullet points for rhetorical emphasis).",
+    "Never recounts stories about third parties; all stories are first-person.",
+    "Never uses direct quotes from other people except a single line from a brief phone call."
+  ],
+  "open_observations": "The writer's voice depends on precise frequency constraints for each signature move. Any deviation in count (e.g., using 'Af' twice, or omitting the space-before-comma even once) breaks the illusion. The text must avoid all common AI generation artifacts: no balanced three-part lists, no conclusion-signal phrases ('In conclusion', 'Ultimately'), no rhetorical questions in body paragraphs, no contrastive structures, no advisory tone. The overall effect should feel like a friend recounting a story over coffee, with grammatical quirks (lowercase i, space before comma) that feel intentional and human. The greatest risk is overusing signature moves — especially lowercase 'i' (cap at 5 uses) and sentence fragments (zero allowed). Each fingerprint must be placed naturally, not clustered in the first few paragraphs. The writer's voice is as much defined by what it avoids as by what it includes; adherence to the negative space is non-negotiable."
+}

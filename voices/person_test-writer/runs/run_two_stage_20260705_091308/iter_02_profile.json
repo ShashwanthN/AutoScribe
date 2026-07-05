@@ -1,0 +1,65 @@
+{
+  "active_voice_ratio": 0.98,
+  "person": "mixed",
+  "formality_register": 0.05,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "Peer sharing hard-won personal experience with a peer, not an authority. The writer positions themself on equal footing, using 'i' and 'you' to reinforce one-to-one conversation. Never speaks down to the reader.",
+  "word_choice_style": "Very casual, with slang (Af), missing apostrophes in contractions (dont, isnt, its, thats, doesnt), occasional lowercase 'i', and everyday vocabulary. Uses contractions but without apostrophes. Direct and simple. Prefers blunt confirmations/negations: nope, nah, yep. Avoids formal business jargon; any technical terms are either explained briefly or assumed to be known.",
+  "sentence_construction": "Short to medium sentences, often simple or run-on. Clauses joined loosely with commas or no punctuation. Fragments used. Loose, stream-of-consciousness syntax. Varies between very short fragments and longer rambling sentences with multiple clauses. Avoid sustained staccato; intersperse occasional longer sentences.",
+  "punctuation_details": "Apostrophes consistently omitted in contractions. Hyphens used for compounds (markdown-based, note-taking). No em dash used. Bullet points lack terminal punctuation if items are short or fragments. No semicolons. Periods end most sentences but are sometimes omitted after single-word closing (Cya). No ellipsis marks used.",
+  "rhythm_description": "Choppy, staccato overall, but the writer occasionally strings together multiple clauses in a single longer sentence. Bullet lists dominate but should be interspersed with at least one longer statement per section. Avoid sustained staccato; include longer sentences to break the rhythm.",
+  "sentence_opener_patterns": "I, You, It, Because, Yeah, So, TL;DR. Also occasional 'Nope', 'Yeah i get it'. Bullet points open with dashes and subject fragments (e.g., '- Its not a matter of...', '- You can...').",
+  "sentence_ending_patterns": "Ends with period typically. Bullet points without periods if they are fragments. Headings end with question marks or nothing. The article ends with the exact heading 'Thats it Cya.' without any punctuation after the phrase. No trailing period.",
+  "hedging_style": "Minimal. Occasional 'maybe for you too'. Generally assertive or offhand, not tentative.",
+  "emphasis_style": "All-caps slang (Af) after an adjective, capitalization of key terms (Title), and blunt phrasing (flawless, perfect, nope, nah, yep). No italics or underline for emphasis; bold sparingly used for headings.",
+  "analogy_style": "Rare. Uses only very short analogies or pop-culture references (e.g., Jack Harlow). Avoids extended analogies or hypothetical scenarios that span multiple sentences. If used, keeps to a single sentence or less.",
+  "humor_style": "Understated and self-deprecating (slow Af), playful framing of headings (huh what?, Cya). Light tone, not overtly jokey.",
+  "argument_style": "Avoids formal argument structures. When the skeleton requires counterargument or objection handling, does not set up an attributed opposition (e.g., 'Some say X...'). Instead, presents the point directly as a personal observation or assertion. Uses bullet points and personal testimony to persuade, not a claim-evidence-warrant chain. The argument unfolds as a series of straightforward statements and examples without explicit rebuttal framing.",
+  "jargon_style": "Introduces domain terms (e.g., Markdown, graph view, Syncthing, PMF, MVP) without elaborate explanation or defines them briefly in parentheses. Assumes reader knows the domain or can infer. Does not avoid jargon but never uses overly technical language.",
+  "parenthetical_style": "Infrequent parentheticals; when they appear they are short asides (e.g., in my POV, like jack harlow says…). Not a habitual feature. Never uses em dashes for parentheticals.",
+  "structural_conventions": "Short sections with markdown headers (###, ##). Heavy use of bullet lists. A TL;DR section must appear before the closing 'Thats it Cya.' heading. The closing heading is 'Thats it Cya.' exactly, with no additional punctuation. Section headers derived from the content skeleton must be rewritten into the characteristic conversational, fragmentary style (e.g., 'Second Brain huh what?', 'Why validate? (in my POV)'). Numbered steps used only if mandated by skeleton, written as plain numbers (1., 2.) or as bullet dashes.",
+  "voice_fingerprints": [
+    {
+      "pattern": "Consistently omits apostrophes in all contractions: writes dont, isnt, its, thats, cya, doesnt instead of don't, isn't, it's, that's, see you, doesn't.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Every section heading is a conversational, fragmentary phrase that speaks directly to the reader or questions the term, often including 'huh what?' or '(in my POV)'. Even when derived from a content skeleton, headings are rewritten in this style.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Regularly uses 'Af' (capitalized) after an adjective for emphasis (e.g., slow Af).",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Inconsistent capitalization: sometimes writes 'i' lowercase in the middle of sentences, and other lowercase instances where standard English would capitalize (e.g., 'Yeah i get it').",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Includes a TL;DR section summarizing the article immediately before the final heading. Ends the article with the heading 'Thats it Cya.' without any punctuation after the phrase.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Uses bullet lists where items are a mix of full sentences and sentence fragments, without consistent punctuation at the end.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Occasional subject-verb disagreement (once or twice per article), such as 'Both devices needs' (singular verb for plural subject).",
+      "scope": "universal"
+    }
+  ],
+  "negative_space": [
+    "Never uses perfectly correct grammar: apostrophes always omitted, occasional subject-verb disagreement, run-on sentences without proper punctuation.",
+    "Never uses formal argument structures: no attributed objections/rebuttals (e.g., 'Funded founders say...'), no elaborately named sections like 'Section 1: The Hook'.",
+    "Never uses em dashes with spaces or as standard punctuation; avoids elaborate parenthetical asides.",
+    "Never writes in a detached third-person narrative; always uses first or second person, strongly personal (I, you).",
+    "Never uses multi-sentence extended analogies or hypothetical scenarios to illustrate a point.",
+    "Never uses inclusive 'we' or 'let's'; always 'I' and 'you' individually.",
+    "Never uses negative parallel constructions such as 'It's not X, it's Y' or 'It wasn't X, it was Y'; states assertions directly without inversion.",
+    "Never uses ellipsis (...) for dramatic pause or trailing off.",
+    "Never overuses rule-of-three patterns; avoids three sequential parallel structures.",
+    "Never omits the TL;DR section before the closing 'Thats it Cya.' heading, and never alters the closing phrase or adds punctuation to it."
+  ],
+  "open_observations": "The writing feels like a spoken monologue transcribed. Stream-of-consciousness, unpolished, with rough edges that become a trademark. The author is comfortable with imperfection, which makes the voice feel authentic and approachable. The writer's voice is consistent across topics, but adaptability to structured content skeletons requires care to preserve the casual style."
+}

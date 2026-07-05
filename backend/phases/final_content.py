@@ -9,6 +9,7 @@ from backend.phases import prompt_assembly
 from backend.phases.base import PhaseAborted, emit_event, stream_llm_completion, strip_markdown_code_fences
 from backend.storage import projects
 from backend.storage.voice_profiles import get_voice_profile
+from pipeline.draft_utils import strip_draft_scaffolding
 
 
 async def generate(
@@ -56,7 +57,7 @@ async def generate(
                 project_id,
                 phase,
                 "final.generate",
-                prompt_assembly.final_messages(voice.prompt, draft_file, instructions),
+                prompt_assembly.final_messages(voice.prompt, strip_draft_scaffolding(draft_file), instructions),
                 0.7,
                 final_parts,
             ):

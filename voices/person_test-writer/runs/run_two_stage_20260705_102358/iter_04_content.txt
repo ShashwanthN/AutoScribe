@@ -1,0 +1,72 @@
+### The Hook
+i watched a team do everything right.
+Good engineers. Clean code. Money in the bank.
+It felt like that scene in a heist movie where they drill into the wrong vault.
+All that prep. Wrong room.
+They built a tool for labs that analyze fractures.
+Really good accuracy. Made it way faster.
+They sent a bunch of free trials to top labs.
+A month later , zero people were using it.
+i called them up.
+"We just need people to write reports , not a new tool," the guy said.
+Ouch.
+They spent months on it. Morale tanked.
+The assumption was the killer.
+
+### The Indictment
+Yeah i get it - everyone says just build fast and the market will follow.
+i used to believe that too.
+You hear stories about founders grinding through the night.
+But i saw the lab tool fail. Perfect build. Nobody cared.
+Then i saw another thing. A scrappier setup. Weaker code.
+But they picked the right people who actually had the problem.
+It took off.
+Made me realize you can't code a want into existence.
+
+### The Turning Point
+For the first team , the fix came in a random chat at a conference.
+A guy from a coatings company was annoyed about analysis costs eating his budget.
+He didn't want a researcher tool.
+He wanted consistent QA for their shop floor.
+Same engine. Different people. Different message.
+That detour cost half a year. Expensive Af.
+
+### Why I check first (in my POV)
+Because building the wrong thing is way more expensive than asking around first.
+Because a weekend of digging saves months of fixing.
+Because the tools are finally cheap enough to do this.
+
+### How i read the room
+There are tools that tell you what people are complaining about.
+i used one to search for "industrial epoxy complaints". It was popping off.
+i scraped a bunch of forum threads. Fed them into an AI.
+It found a cluster: people wanting tough coatings for their home garages.
+i tested a few messages with a poll. One did three times better.
+i checked who the audience was. DIY guys.
+i threw a few bucks at ads. Got a bunch of names for the waiting list.
+Then we built the thing. It felt like cheating.
+
+### What the process taught me
+The product doesn't invent the need. The need shapes the product.
+For the lab tool , the tech didn't change. The application did.
+For the epoxy thing , we didn't build a general tool. We built exactly for that garage crowd.
+It is easier to build for a specific itch than a general ache.
+
+### When i decide to fold
+i started asking a hard question.
+If i had to sell this to a stranger with no hype , just their problem.
+Would they buy it in 30 seconds?
+If the answer is no , it's just a solution looking for a puzzle.
+A weekend of checking is cheaper than six months of building wrong.
+Folding early feels bad. It beats the alternative.
+
+### My new rule
+Now i do a quick lap before i build anything.
+i write down who it's for , what their problem is.
+i scrape the complaints. i poll the message. i confirm the crowd.
+Takes a weekend. Saves months.
+The person checking first has the real edge.
+
+TL;DR
+Building fast doesn't fix a bad guess. Checking first does.
+Cya

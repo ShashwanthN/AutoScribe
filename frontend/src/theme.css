@@ -1,0 +1,90 @@
+/*
+ * Deliberately skip Tailwind's Preflight (its base-reset layer): Preflight
+ * zeroes out default browser styling for buttons/headings/lists globally,
+ * which would bleed into the untouched, hand-rolled Projects CSS in
+ * styles.css. Importing only theme + utilities keeps Tailwind additive.
+ *
+ * Explicit layer order (lowest to highest priority) so our own reset and
+ * focus-ring rules land in the right place relative to Tailwind's utilities
+ * regardless of selector specificity:
+ *   reset (native control chrome neutralized) <
+ *   theme (Tailwind's CSS variables, no selectors) <
+ *   utilities (bg-*, border-*, etc. — always win when applied) <
+ *   overrides (focus ring — must win even over utilities)
+ */
+@layer reset, theme, utilities, overrides;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/*
+ * Design tokens for the Tailwind-based surfaces (nav rail + Voices).
+ * The legacy Projects workspace keeps using styles.css and is untouched.
+ * Single accent: orange. No competing blue focus rings here.
+ */
+@theme {
+  --color-accent: #f98513;
+  --color-accent-soft: #f985131c;
+  --color-accent-hover: #e07610;
+
+  --color-success: #216456;
+  --color-success-soft: #e3f3ef;
+  --color-danger: #a35d5d;
+  --color-danger-soft: #fff2f2;
+
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-border: #dfe5ec;
+  --color-border-soft: #e4e9ef;
+  --color-text-strong: #20242a;
+  --color-text: #2e3844;
+  --color-text-muted: #647282;
+
+  --radius-card: 10px;
+  --radius-control: 8px;
+
+  --shadow-card: 0 1px 2px rgba(20, 24, 30, 0.04);
+  --shadow-rail: 0 1px 3px rgba(20, 24, 30, 0.06);
+}
+
+@layer reset {
+  /*
+   * Without Preflight, native <button>/<select>/<input>/<textarea> chrome
+   * (background, border, appearance) stays browser-default — which renders
+   * dark on systems/browsers with a dark OS theme, regardless of our
+   * intended light design. Force light, appearance-less controls here; any
+   * utility class (bg-accent, border-border, ...) still wins since the
+   * utilities layer is declared after this one.
+   */
+  .tw-scope {
+    color-scheme: light;
+  }
+
+  .tw-scope button,
+  .tw-scope input,
+  .tw-scope select,
+  .tw-scope textarea {
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+    font: inherit;
+  }
+
+  .tw-scope button {
+    cursor: pointer;
+  }
+}
+
+@layer overrides {
+  /* Kill the legacy blue focus ring wherever Tailwind-based components live;
+     commit to the orange accent everywhere. */
+  .tw-scope input:focus,
+  .tw-scope select:focus,
+  .tw-scope textarea:focus,
+  .tw-scope button:focus-visible {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+  }
+}

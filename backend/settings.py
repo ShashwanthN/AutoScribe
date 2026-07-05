@@ -7,6 +7,7 @@ import config  # noqa: F401 - loads .env as a side effect
 ROOT_DIR = Path(__file__).resolve().parents[1]
 OUTPUTS_DIR = ROOT_DIR / "outputs"
 PROJECTS_DIR = ROOT_DIR / "projects"
+VOICES_DIR = ROOT_DIR / "voices"
 
 
 def _resolve_prompt_skills_dir() -> Path:

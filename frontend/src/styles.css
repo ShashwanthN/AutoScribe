@@ -755,7 +755,7 @@ textarea {
 .sidebar-expand-btn {
   position: absolute;
   top: 18px;
-  left: 18px;
+  left: 74px;
   z-index: 100;
   display: flex;
   align-items: center;

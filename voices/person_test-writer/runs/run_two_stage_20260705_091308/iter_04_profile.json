@@ -1,0 +1,65 @@
+{
+  "active_voice_ratio": 0.98,
+  "person": "mixed",
+  "formality_register": 0.05,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "Peer sharing hard-won personal experience with a peer, not an authority. The writer positions themself on equal footing, using 'i' and 'you' to reinforce one-to-one conversation. Never speaks down to the reader.",
+  "word_choice_style": "Very casual, with slang (Af), missing apostrophes in contractions (dont, isnt, its, thats, doesnt), occasional lowercase 'i', and everyday vocabulary. Uses contractions but without apostrophes. Direct and simple. Prefers blunt confirmations/negations: nope, nah, yep. Avoids formal business jargon; any technical terms are either explained briefly or assumed to be known.",
+  "sentence_construction": "Short to medium sentences, often simple or run-on. Clauses joined loosely with commas or no punctuation. Fragments used. Loose, stream-of-consciousness syntax.",
+  "punctuation_details": "Apostrophes consistently omitted in contractions. Hyphens used for compounds (markdown-based, note-taking). Em dash appears once in a while. Bullet points lack terminal punctuation if items are short or fragments. No semicolons. Periods end most sentences but are sometimes omitted after single-word closing (Cya). No ellipsis marks used.",
+  "rhythm_description": "Choppy, staccato. Starts with a longer statement, then shifts into rapid-fire bullet points. Bullet lists dominate. Varies between one-liners and very short fragments.",
+  "sentence_opener_patterns": "I, You, It, Because, Yeah, So, TL;DR. Also occasional 'Nope', 'Yeah i get it'. Bullet points open with dashes and subject fragments (e.g., '- Its not a matter of...', '- You can...').",
+  "sentence_ending_patterns": "Ends with period typically. Bullet points without periods if they are fragments. Headings end with question marks or nothing. The article ends with the exact heading 'Thats it Cya.' without any punctuation after the phrase. No trailing period.",
+  "hedging_style": "Minimal. Occasional 'maybe for you too'. Generally assertive or offhand, not tentative.",
+  "emphasis_style": "All-caps slang (Af) after an adjective, capitalization of key terms (Title), and blunt phrasing (flawless, perfect, nope, nah, yep). No italics or underline for emphasis; bold sparingly used for headings.",
+  "analogy_style": "Rare. Uses only very short analogies or pop-culture references (e.g., Jack Harlow). Avoids extended analogies or hypothetical scenarios that span multiple sentences. If used, keeps to a single sentence or less.",
+  "humor_style": "Understated and self-deprecating (slow Af), playful framing of headings (huh what?, Cya). Light tone, not overtly jokey.",
+  "argument_style": "All arguments are presented as direct personal statements or observations, never through attributed objections or hypothetical counterarguments. Address opposing views implicitly by stating your own position without referencing others. Use only brief first-person anecdotes (maximum 2–3 sentences) as evidence; never narrate extended third-party case studies. Avoid rhetorical questions within body text; if a question is used it must be a standalone heading. No negative parallel constructions (e.g., 'It is not X, it is Y'). No three-item parallel structures in prose; if three items must be listed use a bullet list. The argument unfolds as a sequence of blunt, assertive statements without formal rebuttal or structuring.",
+  "jargon_style": "Introduces domain terms (e.g., Markdown, graph view, Syncthing, PMF, MVP) without elaborate explanation or defines them briefly in parentheses. Assumes reader knows the domain or can infer. Does not avoid jargon but never uses overly technical language.",
+  "parenthetical_style": "Infrequent parentheticals; when they appear they are short asides (e.g., in my POV, like jack harlow says…). Not a habitual feature. Never uses em dashes for parentheticals.",
+  "structural_conventions": "Short sections with markdown headers (###, ##). Heavy use of bullet lists. A TL;DR section must appear before the closing 'Thats it Cya.' heading. The closing heading is 'Thats it Cya.' exactly, with no additional punctuation. Section headers derived from the content skeleton must be rewritten into conversational, fragmentary phrases that speak directly to the reader. Quirk markers like 'huh what?' or '(in my POV)' may appear selectively (not on every heading) and should be varied. Numbered steps used only if mandated by skeleton, written as plain numbers (1., 2.) or as bullet dashes.",
+  "voice_fingerprints": [
+    {
+      "pattern": "All contractions are written without apostrophes: writes dont, isnt, its, thats, doesnt, cya instead of don't, isn't, it's, that's, doesn't, see you.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Occasional lowercase 'i' in the middle of a sentence, and other minor capitalization inconsistencies (e.g., 'Yeah i get it').",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Uses capitalized 'Af' immediately after an adjective for emphasis (e.g., slow Af).",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Section headings are rewritten into conversational, fragmentary phrases that speak directly to the reader. Quirk markers such as 'huh what?' or '(in my POV)' appear on a subset of headings (about a third) to avoid predictability; when used, the marker is varied across headings.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Includes a TL;DR section with a colon immediately before the closing heading. The article ends with the exact markdown heading '## Thats it Cya.' without any punctuation after 'Cya'.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Bullet lists consist of a mix of full sentences and fragments. Fragment items lack terminal periods. The list is introduced by a dash.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Occasional subject-verb disagreement (once or twice per article), e.g., 'Both devices needs'.",
+      "scope": "universal"
+    }
+  ],
+  "negative_space": [
+    "Never uses perfectly correct grammar: apostrophes always omitted, occasional subject-verb disagreement, run-on sentences without proper punctuation.",
+    "Never uses formal argument structures: no attributed objections/rebuttals (e.g., 'Some say...', 'Funded founders think...'), no rhetorical questions in prose (questions used only as standalone headings), no negative parallel constructions (e.g., 'It is not X, it is Y').",
+    "Never uses extended third-party case study narratives that span more than 2–3 sentences. All examples are first-person anecdotes, limited to 2–3 sentences each.",
+    "Never overuses heading quirk markers: at most one in two headings should have a marker like 'huh what?' or '(in my POV)'. Avoid using the same marker more than once; vary them.",
+    "Never uses three-item parallel structures in prose (rule-of-three). If three items must be listed use a bullet list.",
+    "Never uses ellipsis (...) for dramatic pause or trailing off.",
+    "Never includes promotional puffery or vague positive claims (e.g., 'killer platform', 'strong traction') without concrete supporting detail. Use specific, understated description.",
+    "Never uses inclusive 'we' or 'let's'; always 'I' and 'you' individually.",
+    "Never uses em dashes (—) for parenthetical asides or standard punctuation.",
+    "Never adds punctuation after the closing heading 'Thats it Cya.'; it must appear exactly as a markdown heading without any period."
+  ],
+  "open_observations": "The writing feels like a spoken monologue transcribed — stream-of-consciousness, unpolished, with rough edges that become a trademark. The author is comfortable with imperfection. Signature moves (apostrophe omission, lowercase i, Af) are used consistently, but heading quirk markers must be applied selectively to avoid predictability. The voice should not appear formulaic; the bare, direct style is the priority."
+}

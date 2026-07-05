@@ -1,0 +1,12 @@
+{
+  "run_id": "run_two_stage_20260705_091308",
+  "person_id": "person_test-writer",
+  "draft_source": "template",
+  "max_iterations": 4,
+  "status": "completed",
+  "best_score": 0.7522,
+  "best_iteration": 2,
+  "exit_reason": "max_iterations",
+  "started_at": "2026-07-05T09:13:08.813160",
+  "completed_at": "2026-07-05T10:21:09.300741"
+}

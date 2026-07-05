@@ -1,0 +1,29 @@
+{
+  "run_id": "run_two_stage_20260704_132933",
+  "exit_reason": "max_iterations",
+  "best_score": 0.811,
+  "best_iteration": 1,
+  "threshold": 0.85,
+  "scores": [
+    0.811
+  ],
+  "iterations": [
+    {
+      "iteration": 1,
+      "score": 0.811,
+      "converged": false,
+      "top_priorities": [
+        "word_choice",
+        "voice_fingerprints",
+        "sentence_endings"
+      ],
+      "generated_content_path": "/Users/shashwanthsivakumar/Desktop/Projects/coffee/End-To-End Writer/voices/person_test-writer/runs/run_two_stage_20260704_132933/iter_01_content.txt",
+      "style_profile_path": "/Users/shashwanthsivakumar/Desktop/Projects/coffee/End-To-End Writer/voices/person_test-writer/runs/run_two_stage_20260704_132933/iter_01_profile.json",
+      "style_prompt_path": "/Users/shashwanthsivakumar/Desktop/Projects/coffee/End-To-End Writer/voices/person_test-writer/runs/run_two_stage_20260704_132933/iter_01_style_prompt.txt",
+      "relative_verdict": "baseline",
+      "timestamp": "2026-07-04T13:38:38.217096"
+    }
+  ],
+  "started_at": "2026-07-04T13:29:33.748329",
+  "completed_at": "2026-07-04T13:38:38.217237"
+}

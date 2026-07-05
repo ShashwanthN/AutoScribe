@@ -1,0 +1,49 @@
+{
+  "active_voice_ratio": 0.9,
+  "person": "third",
+  "formality_register": 0.6,
+  "emotional_temperature": 0.0,
+  "reader_directness": 0.0,
+  "reader_relationship": "Neutral information provider; author positions themselves as an objective describer of the text's own attributes, making no attempt to engage, persuade, or instruct the reader.",
+  "word_choice_style": "Uses only the most basic, neutral vocabulary; no contractions, no colloquialisms, no figurative language, no technical terms; adjectives are limited to minimal intrinsic descriptors (short, plain, matter-of-fact).",
+  "sentence_construction": "Simple declarative sentences with subject-verb-complement order; no multi-clause constructions; participial phrases attached at the end without commas; no conjunctions or subordinators linking sentences.",
+  "punctuation_details": "Only period is used; commas are omitted before the trailing participial phrase where convention might expect one; no dashes, quotation marks, parentheses, or other punctuation marks appear.",
+  "rhythm_description": "Two sentences of nearly identical length (approximately 10–12 words each), creating a flat, unvaried rhythm with no contrast or pacing shift.",
+  "sentence_opener_patterns": "First sentence opens with demonstrative pronoun ('This'); second sentence opens with impersonal pronoun ('It').",
+  "sentence_ending_patterns": "Both sentences end with descriptive modifiers: first with a purpose clause ('used for...'), second with a style descriptor ('written in... style').",
+  "hedging_style": "No hedging or qualifying language; all statements are direct and unqualified.",
+  "emphasis_style": "No emphasis devices; no intensifiers, no repetition for effect, no contrastive structures.",
+  "analogy_style": "No analogies or metaphors.",
+  "humor_style": "Humor is absent; no comedic devices or tonal shifts.",
+  "argument_style": "No argument structure present; the text is purely descriptive, making no claim or point to be argued.",
+  "jargon_style": "No domain-specific terminology.",
+  "parenthetical_style": "No parenthetical asides.",
+  "structural_conventions": "Single paragraph, no headings, no lists, no formatting marks; extremely brief (2 sentences).",
+  "voice_fingerprints": [
+    {
+      "pattern": "Defines a subject by placing a demonstrative pronoun ('This') followed by a copula ('is'), an article, adjective, noun, and a purpose clause headed by 'used for'.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Describes additional properties of the subject with a sentence beginning with an impersonal pronoun ('It') and possessive verb ('has'), then a noun phrase, an infinitive phrase, and a trailing participial phrase without comma separation.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Omits commas before trailing participial phrases, even where standard punctuation might require them, creating a condensed, run-on reading.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Uses only present-tense copular and possessive verbs ('is', 'has') as main verbs; no auxiliary verbs, modals, or complex verb phrases.",
+      "scope": "universal"
+    }
+  ],
+  "negative_space": [
+    "Never uses second-person pronouns (you, your, yourself).",
+    "Never uses imperative mood (commands or requests to the reader).",
+    "Never uses rhetorical questions to engage the reader.",
+    "Never uses metaphors, similes, analogies, or any figurative language.",
+    "Never employs structural elements such as headings, bullet points, numbered lists, or block quotes.",
+    "Never uses punctuation beyond periods (no commas, dashes, parentheses, exclamation marks, or quotation marks)."
+  ],
+  "open_observations": "The writer's voice is defined by extreme restraint and absence: every rhetorical device present in the AI-generated baseline—direct address, imperatives, rhetorical questions, figures of speech, structural markers—is deliberately avoided, resulting in a style that is purely informational and self-referential, with no attempt to influence, persuade, or even orient the reader."
+}

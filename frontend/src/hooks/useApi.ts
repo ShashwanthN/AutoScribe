@@ -92,3 +92,128 @@ export function useSaveFile(projectId: string, name: PhaseFile) {
     }
   });
 }
+
+export function useVoiceTemplates() {
+  return useQuery({ queryKey: ["voice-templates"], queryFn: api.listVoiceTemplates });
+}
+
+export function usePersons() {
+  return useQuery({ queryKey: ["persons"], queryFn: api.listPersons });
+}
+
+export function usePerson(personId: string | null) {
+  return useQuery({
+    queryKey: ["person", personId],
+    queryFn: () => api.getPerson(personId as string),
+    enabled: Boolean(personId)
+  });
+}
+
+export function useCreatePerson() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (name: string) => api.createPerson(name),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["persons"] })
+  });
+}
+
+export function useRenamePerson(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (name: string) => api.renamePerson(personId, name),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["person", personId] });
+      queryClient.invalidateQueries({ queryKey: ["persons"] });
+    }
+  });
+}
+
+export function useDeletePerson() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (personId: string) => api.deletePerson(personId),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["persons"] })
+  });
+}
+
+export function useArticles(personId: string | null) {
+  return useQuery({
+    queryKey: ["articles", personId],
+    queryFn: () => api.listArticles(personId as string),
+    enabled: Boolean(personId)
+  });
+}
+
+export function useAddArticle(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: { title: string; text: string }) => api.addArticle(personId, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["articles", personId] });
+      queryClient.invalidateQueries({ queryKey: ["person", personId] });
+      queryClient.invalidateQueries({ queryKey: ["persons"] });
+    }
+  });
+}
+
+export function useUpdateArticle(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ articleId, ...payload }: { articleId: string; title: string; text: string }) =>
+      api.updateArticle(personId, articleId, payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["articles", personId] })
+  });
+}
+
+export function useDeleteArticle(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (articleId: string) => api.deleteArticle(personId, articleId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["articles", personId] });
+      queryClient.invalidateQueries({ queryKey: ["person", personId] });
+      queryClient.invalidateQueries({ queryKey: ["persons"] });
+    }
+  });
+}
+
+export function useRuns(personId: string | null) {
+  return useQuery({
+    queryKey: ["runs", personId],
+    queryFn: () => api.listRuns(personId as string),
+    enabled: Boolean(personId)
+  });
+}
+
+export function useRun(personId: string | null, runId: string | null) {
+  return useQuery({
+    queryKey: ["run", personId, runId],
+    queryFn: () => api.getRun(personId as string, runId as string),
+    enabled: Boolean(personId) && Boolean(runId)
+  });
+}
+
+export function useActivateRun(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (runId: string) => api.activateRun(personId, runId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["person", personId] });
+      queryClient.invalidateQueries({ queryKey: ["persons"] });
+      queryClient.invalidateQueries({ queryKey: ["voices"] });
+    }
+  });
+}
+
+export function useDeleteRun(personId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (runId: string) => api.deleteRun(personId, runId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["runs", personId] });
+      queryClient.invalidateQueries({ queryKey: ["person", personId] });
+      queryClient.invalidateQueries({ queryKey: ["persons"] });
+      queryClient.invalidateQueries({ queryKey: ["voices"] });
+    }
+  });
+}

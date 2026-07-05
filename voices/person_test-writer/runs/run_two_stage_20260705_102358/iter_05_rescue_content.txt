@@ -1,0 +1,104 @@
+### The hook
+
+i built this incredible fracture analysis tool for research labs. Poured months into it. Gave it out for free to a bunch of labs.
+
+A month later , no one was using it.
+
+i asked around. The gist was they just needed people to write up reports , not some new software.
+
+i used to think speed and money could fix anything. i was wrong. The gap between being sure you're right and finding out you aren't isn't about grinding harder. It's about checking first.
+
+### The big mistake
+
+i see a lot of people , myself included once , who think a perfect build makes demand appear.
+
+i see stories of overnight success. They make it sound like pure grit and coding through the night work.
+
+My lab software was technically perfect. Completely ignored. Like being the best cookie baker in a town that only wants cake.
+
+i've seen the opposite too. It was a person with a rougher product but a crowd that desperately wanted it.
+
+From what i've seen , building just fills an existing need better. You can't code a crowd into existence.
+
+### How it changed
+
+i had a random chat at a conference that changed the whole thing. i met a guy from a coatings place. He had a completely different hassle. He needed consistent failure analysis. My software did exactly that.
+
+Same code. Different crowd. Different way of explaining what it did.
+
+The detour cost me months and a big chunk of my money.
+
+### Why i check first? (in my POV)
+
+- Because the most expensive thing i ever did was build a polished version before i knew the hassle was real.
+- Because building faster just gets you to the wrong crowd quicker.
+- Because more money just makes the wrong bet bigger.
+
+I do a routine now.
+
+- I look at trend tools to see if something is growing.
+- I scrape forums to see what people complain about.
+- I use a language model to group the complaints.
+- I test a few messages to see which one sticks.
+- I check if the crowd is real.
+
+Once i saw epoxy floor complaints rising. i grabbed a bunch of Reddit threads. The model found a pattern around military-grade coatings for home garages. i tested a few messages. One did way better. i found the crowd was DIY car guys.
+
+A small ad spend got me a few hundred names. i built the rough version afterwards.
+
+A beta tests your specific guess. Scraping forums tests if the hassle is real before you make a guess. i prefer the second one.
+
+### Reading the signs
+
+i look at how often the same complaint shows up on reddit or twitter or a forum.
+
+i check the language. Are the people desperate or just curious?
+
+i see what they already pay for a patch.
+
+It's easy to mistake a loud few for a real crowd.
+
+When the pattern gets messy , i map it out with a diagram tool. Helps me see the shape of it.
+
+### Bend the code to the crowd
+
+i let the tech bend towards the crowd. Not what i feel like building.
+
+i dropped whole features. Changed who i thought the buyers were.
+
+Lab research was a no. Manufacturing QA was a yes. Same engine.
+
+FloorOps wasn't a general floor tool. It was strictly for that garage crowd i found.
+
+### Knowing when to fold
+
+i think the hardest skill is knowing when to walk away.
+
+What tells me to cut bait? Rejection. That experience was a big red flag.
+
+i ask if a stranger would say yes in a few seconds about their own hassle. If not , it's a tough road.
+
+A weekend of checking is way cheaper than months of building. Letting go of a bad idea isn't failure. Not checking first is.
+
+### The last thing
+
+The shift in my thinking was simple. i stopped rushing to build and started rushing to check if people had the thing i was fixing.
+
+i agree it's exciting to start coding right away - a weekend of checking is a better use of the excitement.
+
+My weekend routine:
+
+- Write down who i think has the hassle.
+- Scrape some forums to see if they talk about it.
+- Test the message with a poll.
+- Check if that crowd is real.
+
+This is what i do now. It stops me wasting time on things people don't want.
+
+The patient builder who checks first gets the advantage. i let the crowd decide.
+
+The lab rejection was humbling Af.
+
+TL;DR Check the hassle before you build the fix.
+
+Cya

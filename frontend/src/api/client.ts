@@ -1,13 +1,19 @@
 import type {
   ActivityEvent,
+  Article,
   ContentType,
   FilePayload,
+  Person,
+  PersonSummary,
   Phase,
   PhaseFile,
   Project,
   ProjectMetadata,
   TranscriptMessage,
-  VoiceProfile
+  VoiceProfile,
+  VoiceRunDetail,
+  VoiceRunSummary,
+  VoiceTemplate
 } from "../types";
 
 const API_BASE = "/api";
@@ -58,7 +64,38 @@ export const api = {
   getTranscript: (projectId: string, phase: Phase) =>
     request<TranscriptMessage[]>(`/projects/${projectId}/transcript/${phase}`),
   getActivity: (projectId: string) =>
-    request<ActivityEvent[]>(`/projects/${projectId}/activity`)
+    request<ActivityEvent[]>(`/projects/${projectId}/activity`),
+
+  listVoiceTemplates: () => request<VoiceTemplate[]>("/voice-templates"),
+  listPersons: () => request<PersonSummary[]>("/persons"),
+  getPerson: (personId: string) => request<PersonSummary>(`/persons/${personId}`),
+  createPerson: (name: string) =>
+    request<Person>("/persons", { method: "POST", body: JSON.stringify({ name }) }),
+  renamePerson: (personId: string, name: string) =>
+    request<Person>(`/persons/${personId}`, { method: "PATCH", body: JSON.stringify({ name }) }),
+  deletePerson: (personId: string) => request<void>(`/persons/${personId}`, { method: "DELETE" }),
+
+  listArticles: (personId: string) => request<Article[]>(`/persons/${personId}/articles`),
+  addArticle: (personId: string, payload: { title: string; text: string }) =>
+    request<Article>(`/persons/${personId}/articles`, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    }),
+  updateArticle: (personId: string, articleId: string, payload: { title: string; text: string }) =>
+    request<Article>(`/persons/${personId}/articles/${articleId}`, {
+      method: "PUT",
+      body: JSON.stringify(payload)
+    }),
+  deleteArticle: (personId: string, articleId: string) =>
+    request<void>(`/persons/${personId}/articles/${articleId}`, { method: "DELETE" }),
+
+  listRuns: (personId: string) => request<VoiceRunSummary[]>(`/persons/${personId}/runs`),
+  getRun: (personId: string, runId: string) =>
+    request<VoiceRunDetail>(`/persons/${personId}/runs/${runId}`),
+  activateRun: (personId: string, runId: string) =>
+    request<Person>(`/persons/${personId}/runs/${runId}/activate`, { method: "POST" }),
+  deleteRun: (personId: string, runId: string) =>
+    request<void>(`/persons/${personId}/runs/${runId}`, { method: "DELETE" })
 };
 
 export function apiUrl(path: string): string {

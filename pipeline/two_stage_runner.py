@@ -4,7 +4,7 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 from rich.console import Console
 from rich.panel import Panel
@@ -25,6 +25,7 @@ from models.comparison_result import ComparisonResult
 from models.pipeline_state import IterationRecord, PipelineConfig, PipelineState
 from models.style_profile import StyleProfile
 from pipeline.convergence import ConvergenceChecker
+from pipeline.draft_utils import strip_draft_scaffolding
 
 console = Console()
 
@@ -235,7 +236,13 @@ class TwoStageRunner:
             plateau_patience=config.plateau_patience,
         )
 
-    def run(self, original_writing: list[str], structure: str) -> PipelineState:
+    def run(
+        self,
+        original_writing: list[str],
+        structure: str,
+        draft: Optional[str] = None,
+        progress_cb: Optional[Callable[[dict], None]] = None,
+    ) -> PipelineState:
         run_id = f"run_two_stage_{_timestamp()}"
         run_dir = Path(self.config.output_dir) / run_id
         run_dir.mkdir(parents=True, exist_ok=True)
@@ -244,7 +251,7 @@ class TwoStageRunner:
             enable_detailed_log(run_dir / "detailed_log.txt")
 
         try:
-            return self._run(original_writing, structure, run_id, run_dir)
+            return self._run(original_writing, structure, run_id, run_dir, draft, progress_cb)
         finally:
             if self.config.detailed_log:
                 close_detailed_log()
@@ -255,20 +262,31 @@ class TwoStageRunner:
         structure: str,
         run_id: str,
         run_dir: Path,
+        draft: Optional[str] = None,
+        progress_cb: Optional[Callable[[dict], None]] = None,
     ) -> PipelineState:
+        using_draft = draft is not None
         console.print(Panel(
             f"[bold cyan]Writer Pipeline — Two-Stage Mode[/bold cyan]\n"
             f"Run ID:    {run_id}\n"
             f"Topic:     {self.config.topic}\n"
-            f"Stage 1:   Skeleton generation (single pass)\n"
-            f"Stage 2:   Voice generation ({self.config.max_iterations} max iters, "
+            + (
+                f"Stage 1:   Skipped — using supplied draft as content skeleton\n"
+                if using_draft else
+                f"Stage 1:   Skeleton generation (single pass)\n"
+            )
+            + f"Stage 2:   Voice generation ({self.config.max_iterations} max iters, "
             f"threshold {self.config.threshold})\n"
             f"[dim]Stage 1 produces a content skeleton. Stage 2 generates article in the author's voice.[/dim]",
             border_style="cyan",
         ))
 
-        skeleton = self._run_stage1(structure, run_dir, original_writing)
-        state = self._run_stage2(original_writing, structure, skeleton, run_dir, run_id)
+        if using_draft:
+            skeleton = strip_draft_scaffolding(draft)
+            (run_dir / "skeleton.md").write_text(skeleton)
+        else:
+            skeleton = self._run_stage1(structure, run_dir, original_writing)
+        state = self._run_stage2(original_writing, structure, skeleton, run_dir, run_id, progress_cb)
         self._write_portable_artifacts(run_dir, skeleton, structure, state)
         return state
 
@@ -303,7 +321,12 @@ class TwoStageRunner:
         skeleton: str,
         run_dir: Path,
         run_id: str,
+        progress_cb: Optional[Callable[[dict], None]] = None,
     ) -> PipelineState:
+        def _notify(event: dict) -> None:
+            if progress_cb is not None:
+                progress_cb(event)
+
         reference_text = "\n\n---ARTICLE BREAK---\n\n".join(original_writing)
 
         state = PipelineState(
@@ -317,6 +340,7 @@ class TwoStageRunner:
             "[bold yellow]Stage 2: Voice-Aware Article Generation[/bold yellow]",
             border_style="yellow",
         ))
+        _notify({"type": "stage2_start", "max_iterations": self.config.max_iterations})
 
         # Agent 0 — neutral baseline for adversarial stylometry
         _step("Agent 0 — Generating neutral baseline for adversarial stylometry...")
@@ -324,18 +348,20 @@ class TwoStageRunner:
             system_prompt="Write a clear, informative article. Use a natural, confident style.",
             user_prompt=(
                 f"Topic: {self.config.topic}\n\n"
-                f"Follow this structure:\n{structure}"
+                f"Follow this structure:\n{skeleton}"
             ),
             temperature=0.0,
         )
         _done(f"Agent 0 complete — baseline {len(baseline_text)} chars")
         (run_dir / "baseline.txt").write_text(baseline_text)
+        _notify({"type": "baseline_done"})
 
         # Agent 1 — extract voice profile
         _step("Agent 1 — Extracting voice profile from writing samples...")
         style_profile = self.extractor.extract(reference_text, generated_baseline=baseline_text)
         _done("Agent 1 complete — voice profile extracted")
         _log_profile(style_profile)
+        _notify({"type": "profile_extracted"})
 
         best_profile = style_profile
         best_content = ""
@@ -445,6 +471,12 @@ class TwoStageRunner:
                         f"  [bold red]✗ Rescue failed: {rescue_score:.3f} ≤ best {state.best_score:.3f} "
                         f"— falling back to best profile for next iteration[/bold red]"
                     )
+                _notify({
+                    "type": "rescue",
+                    "iteration": iteration,
+                    "rescue_score": rescue_score,
+                    "accepted": accepted_score == rescue_score,
+                })
 
             prev_comparison = accepted_comparison
 
@@ -465,6 +497,8 @@ class TwoStageRunner:
             profile_path.write_text(accepted_profile.model_dump_json(indent=2))
             prompt_path = run_dir / f"iter_{iteration:02d}_style_prompt.txt"
             prompt_path.write_text(self._build_stage2_prompt(skeleton, accepted_profile))
+            voice_prompt_path = run_dir / f"iter_{iteration:02d}_voice_prompt.txt"
+            voice_prompt_path.write_text(accepted_profile.to_prompt_text())
 
             record = IterationRecord(
                 iteration=iteration,
@@ -477,6 +511,15 @@ class TwoStageRunner:
                 relative_verdict=accepted_comparison.relative_verdict,
             )
             state.record_iteration(record)
+            _notify({
+                "type": "iteration",
+                "iteration": iteration,
+                "score": accepted_score,
+                "best_score": state.best_score,
+                "verdict": accepted_comparison.relative_verdict,
+                "converged": accepted_comparison.converged,
+                "top_priorities": accepted_comparison.top_priorities,
+            })
 
             # Convergence check
             if not self.config.run_all:
@@ -538,6 +581,12 @@ class TwoStageRunner:
             f"Outputs:     {run_dir}",
             border_style="green",
         ))
+        _notify({
+            "type": "pipeline_done",
+            "best_score": state.best_score,
+            "best_iteration": state.best_iteration,
+            "exit_reason": state.exit_reason,
+        })
         return state
 
     # ── Internal helpers ────────────────────────────────────────────────────────
@@ -628,6 +677,7 @@ class TwoStageRunner:
         (run_dir / "final_style_prompt.txt").write_text(
             self._build_stage2_prompt(skeleton, best_profile)
         )
+        (run_dir / "final_voice_prompt.txt").write_text(best_profile.to_prompt_text())
         _done(f"Full prompt written → {run_dir / 'final_style_prompt.txt'}")
 
     def _write_portable_artifacts(

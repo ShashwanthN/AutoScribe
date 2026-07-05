@@ -54,3 +54,63 @@ export interface SseFrame {
   event: string;
   data: ActivityEvent;
 }
+
+export interface Person {
+  id: string;
+  name: string;
+  slug: string;
+  current_run_id: string | null;
+  voice_id: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PersonSummary extends Person {
+  article_count: number;
+  run_count: number;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  text: string;
+  added_at: string;
+}
+
+export interface VoiceTemplate {
+  id: string;
+  label: string;
+  description: string;
+}
+
+export type DraftSource = "template" | "custom";
+
+export interface VoiceGenerateRequest {
+  draft_source: DraftSource;
+  template_id?: string | null;
+  custom_draft?: string | null;
+  max_iterations?: number;
+}
+
+export interface VoiceRunSummary {
+  run_id: string;
+  person_id: string;
+  draft_source: string;
+  max_iterations: number;
+  status: string;
+  best_score: number | null;
+  best_iteration: number | null;
+  exit_reason: string | null;
+  started_at: string;
+  completed_at: string | null;
+}
+
+export interface VoiceRunDetail extends VoiceRunSummary {
+  style_prompt: string | null;
+  final_content: string | null;
+}
+
+export interface VoiceGenerateEvent {
+  type: string;
+  [key: string]: unknown;
+}

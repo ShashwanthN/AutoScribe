@@ -1,0 +1,62 @@
+{
+  "active_voice_ratio": 0.95,
+  "person": "mixed",
+  "formality_register": 0.1,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.7,
+  "reader_relationship": "Enthusiast sharing a personal discovery with a peer, using casual and humorous language, positioning themselves as a fellow user rather than an expert.",
+  "word_choice_style": "Colloquial vocabulary with frequent contractions, internet slang (e.g., 'Af', 'Cya'), and inconsistent capitalization. Uses simple, everyday words. Includes pop culture references for analogy. Avoids jargon without explanation.",
+  "sentence_construction": "Mostly simple and compound sentences, often run-on with commas. Frequent use of dashes to pivot or add afterthought. Many sentences start with 'I', 'It', or 'You'. Bullet-pointed lists substitute for paragraph development. Subject-verb-object structure dominant.",
+  "punctuation_details": "Inconsistent capitalization: 'i' sometimes lower-case. Spaces before commas. Dashes used with surrounding spaces. Uses bold for emphasis but no italics. No semicolons. Periods used but sometimes omitted in informal sign-offs. Question marks used in headers.",
+  "rhythm_description": "Saccadic rhythm: very short sentences or sentence fragments alternating with longer, comma-rich strings. Bullet points interrupt the flow. Overall staccato, mimicking spoken thought.",
+  "sentence_opener_patterns": "Frequently opens with 'I', 'It', 'You', 'Because' (in bullets), 'Yeah', 'Once'. Many sentences begin with a pronoun or conjunction. Rarely starts with a prepositional phrase or adverb.",
+  "sentence_ending_patterns": "Usually ends with a period. Many sentences end with a noun or pronoun. No strong pattern; often end with the object of the verb. Bullet-pointed items often end without punctuation.",
+  "hedging_style": "Minimal hedging. Uses 'maybe' occasionally but mostly direct, assertive statements. Does not use 'I think' or 'perhaps' frequently. Rare qualifiers.",
+  "emphasis_style": "Uses bold for headers and key terms. Relies on sentence fragments for punch. Uses repetition of key phrases. Employs dashes to set off an amplifying clause.",
+  "analogy_style": "Rare; one pop culture analogy used to illustrate a point about brain usage. Otherwise, relies on direct metaphor. Analogies are brief and humorous.",
+  "humor_style": "Dry, self-deprecating humor through slang, ironic understatement, and casual registers. Uses pop culture reference for comedic effect. Light tone.",
+  "argument_style": "Not argumentative; primarily a list of personal reasons and feature descriptions. Structural move: state a question as header, then list bullet points. Does not develop a thesis or address counterpoints.",
+  "jargon_style": "Explains essential terminology in plain language. Assumes basic familiarity with note-taking concepts. Does not use industry jargon without clarification.",
+  "parenthetical_style": "Almost completely absent. Only used once in a header to qualify perspective. Does not use parenthetical asides in body text.",
+  "structural_conventions": "Short sections with bold headers. Heavy use of bullet-point lists. Single-sentence paragraphs. No block text. Uses 'TL;DR' summary and an informal sign-off. No images or links. Short overall (under 500 words).",
+  "voice_fingerprints": [
+    {
+      "pattern": "Expresses agreement or understanding then pivots with a dash and a modifying phrase: [Agreement phrase] - [qualification or explanation].",
+      "scope": "universal"
+    },
+    {
+      "pattern": "In lists, sometimes starts bullets with 'Because' directly following a question header, creating a direct causal chain.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Inconsistent capitalization of first-person pronoun: sometimes 'I' capitalized, sometimes 'i' lower-case within the same paragraph.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Chooses internet slang 'Af' as an intensifier attached to an adjective without formal punctuation: [adjective] Af.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Ends the piece with a two-element sign-off: a TL;DR summary line followed by an informal closing ('Cya') on its own line.",
+      "scope": "context_sensitive"
+    },
+    {
+      "pattern": "Constructs sentences that string together alternatives or steps with repeated 'or' and commas, producing a run-on feel: [clause] or [clause] or [clause].",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Formats section headers as a direct question followed by a parenthetical perspective qualifier: [Question] (in my POV).",
+      "scope": "context_sensitive"
+    }
+  ],
+  "negative_space": [
+    "Never uses semicolons.",
+    "Avoids long paragraphs of continuous prose; always breaks into short sections or bullet points.",
+    "Does not use formal transition words (however, therefore, moreover).",
+    "Never writes in third-person objective; always first and second person.",
+    "Absence of imperative commands or numbered step-by-step instructions.",
+    "Never includes code blocks or tables.",
+    "Does not use an advisory or directive tone (e.g., 'you should', 'you must')."
+  ],
+  "open_observations": "The writer displays grammatical idiosyncrasies (e.g., missing spaces after punctuation, subject-verb disagreement) that are likely intentional to convey a laid-back, spontaneous tone. The overall effect mimics oral speech transcribed, with a strong personal brand of casualness."
+}

@@ -10,6 +10,7 @@ from backend.api import (
     files_router,
     generate_router,
     projects_router,
+    voices_manager_router,
     voices_router,
 )
 
@@ -30,10 +31,13 @@ def create_app() -> FastAPI:
     app.include_router(chat_router.router, prefix="/api")
     app.include_router(generate_router.router, prefix="/api")
     app.include_router(activity_router.router, prefix="/api")
+    app.include_router(voices_manager_router.router, prefix="/api")
+    app.include_router(voices_manager_router.templates_router, prefix="/api")
 
     @app.on_event("startup")
     async def ensure_runtime_dirs() -> None:
         settings.PROJECTS_DIR.mkdir(parents=True, exist_ok=True)
+        settings.VOICES_DIR.mkdir(parents=True, exist_ok=True)
 
     @app.get("/api/health")
     async def health() -> dict[str, str]:

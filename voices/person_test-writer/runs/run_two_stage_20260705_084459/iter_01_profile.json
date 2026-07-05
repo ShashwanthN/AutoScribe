@@ -1,0 +1,52 @@
+{
+  "active_voice_ratio": 0.9,
+  "person": "mixed",
+  "formality_register": 0.15,
+  "emotional_temperature": 0.6,
+  "reader_directness": 0.9,
+  "reader_relationship": "Enthusiastic peer sharing personal discovery with a like-minded beginner, offering practical tips from experience.",
+  "word_choice_style": "Predominantly simple, everyday vocabulary with occasional domain-specific terms. Heavy use of contractions and some informal slang, including abbreviations and playful sign-offs. Some grammatical informalities (subject-verb agreement inconsistencies, non-standard capitalization). Minimal use of adjectives; verbs and nouns carry the weight.",
+  "sentence_construction": "Loose coordination and list structures dominate. Many sentences are short to medium length, often compound with 'and' or 'but' joining clauses. Bullet points are used extensively to break information into fragmented phrases. In prose, sentences can be run-on with commas separating clauses. No periodic or suspended sentences.",
+  "punctuation_details": "Commas appear frequently but placement is inconsistent (e.g., spacing irregularities). Double quotes are used to bracket key terms that the writer marks as noteworthy. No semicolons or em dashes. Periods are used to end sentences but occasionally omitted on bullet points. Question marks appear in headers without preceding space. Exclamation marks used sparingly.",
+  "rhythm_description": "Rhythm is choppy and conversational, driven by frequent transitions between prose and bullet lists. Prose paragraphs are short (2-4 sentences) with declarative statements. Bullet points create staccato bursts. Some sentences are elliptical, omitting subjects in lists. The overall effect is direct and informal, without periodic variation.",
+  "sentence_opener_patterns": "Almost exclusively starts with subject pronouns (first or second person) or question words. Occasionally starts with an affirmative interjection. Headers do not have a fixed opener pattern.",
+  "sentence_ending_patterns": "Sentences typically end with a period, often after a phrase or a quoted term. Many bullet points end without punctuation, especially when they are fragments. The article ends with a period after the farewell.",
+  "hedging_style": "Uses softening modals ('can be'), adverbs ('basically', 'maybe'), and personal feeling statements ('i feel like'). Hedging is present but not dominant; overall tone is confident in personal experience.",
+  "emphasis_style": "Relies primarily on double quotes to highlight terms that the writer redefines or marks as noteworthy. No use of bold or italics in body text. Headers are rendered in bold by markdown but not used for additional emphasis.",
+  "analogy_style": "Very few analogies; one pop culture reference used as a casual comparison. Not a core feature of the style.",
+  "humor_style": "Light humor through self-deprecation, informal references, and playful sign-offs. Humor is subtle and infrequent.",
+  "argument_style": "Asserts a personal opinion or observation, then supports it with a bullet list of reasons. Reasoning is experiential rather than analytical. No counterarguments or rebuttals.",
+  "jargon_style": "Domain terminology is used with brief, parenthetical definitions in many cases. Does not assume deep prior knowledge but does not over-explain. Jargon is integral but not excessive.",
+  "parenthetical_style": "Almost no parentheses in body text; the only instance appears in a section header to clarify perspective.",
+  "structural_conventions": "Uses markdown headers with increasing depth. Extensive use of bullet points for listing. Includes a common TL;DR summary line near the end. Closes with a casual sign-off line in header format. No diagrams, tables, or footnotes. Paragraphs are short.",
+  "voice_fingerprints": [
+    {
+      "pattern": "After introducing a concept with two impressive terms, undercuts with 'or just [diminutive]'. Syntax: [Grand Claim A], [Grand Claim B], or just [Ordinary Thing], separated by commas.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "After a rhetorical header question, supplies a bullet list with each item beginning with a causal conjunction (e.g., 'Because').",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Concludes the article with a one-line summary introduced by a common TL;DR abbreviation, followed by a new line with a casual farewell in header form.",
+      "scope": "universal"
+    },
+    {
+      "pattern": "Encloses certain terms in double quotation marks, often to express distance or to mark a concept as user-defined rather than standard. Pattern: [text] “term” [text].",
+      "scope": "universal"
+    },
+    {
+      "pattern": "After a provocative header (such as a question or a challenge), begins the body with a concessive opener: an affirmative interjection, an acknowledgment of the likely perception, a dash, then a contrastive statement.",
+      "scope": "context_sensitive"
+    }
+  ],
+  "negative_space": [
+    "Never uses counterargument/rebuttal paired sections.",
+    "Never uses block quotations or pull quotes.",
+    "Never uses numbered instructional steps.",
+    "Never uses bold or italic within body text (only header markdown).",
+    "Never uses semicolons or colons as connective punctuation in sentences."
+  ],
+  "open_observations": "Lowercase first-person pronoun 'i' throughout; occasional spacing before punctuation suggests rapid, unedited composition; overall conveys a chatty, informal tone."
+}

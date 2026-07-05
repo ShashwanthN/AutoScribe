@@ -1,0 +1,55 @@
+### Market First
+
+I watched a team build a perfect AI tool. It had top engineers , a great interface. Sent it out to labs.
+
+A month goes by. Silence.
+
+The feedback? Simple. "We just need report writers , not a new tool."
+
+If you build it , they will come is a line from a movie. Real life doesn't work like that.
+
+Same AI engine. A random chat at a conference changed it all.
+
+We shifted from research labs to manufacturing quality checks. The code didn't change. Just the crowd.
+
+Building a shiny thing before you check if people actually hurt - that is the most expensive move.
+
+The standard fixes don't work:
+- Building faster speeds up the wrong path.
+- More cash is just a bigger bet on a guess.
+- A sample tests your fix , not the pain.
+
+Here is what worked for a flooring idea.
+
+I scraped forums. Found hundreds of guys with failing garage floors. Asked the tool to find the common thread. It spit out the main bunch: tough home garage coatings.
+
+Tested a few messages. One stuck.
+
+Ran a small post. A lot of people wanted in.
+
+Once you have the chatter , look for this:
+- How many people share this exact pain? A handful is a hobby.
+- How mad are they? Desperation sounds different.
+- What do they say they'd pay?
+- Is it a trend or a loud person?
+
+I use a tool to map out the whole structure. Guide here. It helps me see if the pain is wide enough.
+
+I watch the crowd shape the product. Building for a specific scream is easier than a vague whisper.
+
+I ask a hard question. Would a stranger hand over cash in thirty seconds for this fix? If no - it's a solution looking for a problem.
+
+You can dig for a weekend and save a year of building.
+
+i have a simple check before I build anything.
+- Scrape the complaints.
+- Ask the tool to group them.
+- Test your message.
+- Confirm the crowd.
+
+Resist the building instinct. I know the crowd always wins.
+
+This whole thing is simple Af.
+
+TL;DR: Check the pain first. The crowd always wins.
+Cya
